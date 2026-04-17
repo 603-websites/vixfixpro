@@ -976,6 +976,9 @@ img { max-width: 100%; display: block; }
   .hero-estimate-btn { display: inline-flex; }
   .hero-btn-row .hero-phone-btn,
   .hero-btn-row .hero-estimate-btn { flex: 1; justify-content: center; }
+
+  /* Hide estimate form card — Free Estimate button handles this CTA on mobile */
+  .hero-form-card { display: none; }
 }
 
 /* ============================================================
