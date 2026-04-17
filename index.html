@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,17 +16,21 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-vix">Vix</span><span class="logo-fix">Fix</span>
         <span class="logo-sub">Professional Services LLC</span>
       </a>
-      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact" class="nav-cta">Free Quote</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
       </ul>
     </nav>
   </header>
@@ -34,138 +39,149 @@
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">New Hampshire's Trusted Home Repair Experts</p>
-      <h1>When DIY Fails,<br /><em>VixFix Is Here.</em></h1>
-      <p class="hero-sub">Painting · Carpentry · Flooring · Electrical · Water Damage & More</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
-        <a href="#services" class="btn btn-ghost">See Our Services</a>
+      <div class="hero-text">
+        <p class="hero-eyebrow">New Hampshire's Trusted Home Repair Experts</p>
+        <h1>Some Jobs Call for a Pro.<br /><em>VixFix Is Here.</em></h1>
+        <p class="hero-sub">Painting · Carpentry · Flooring · Electrical · Water Damage &amp; More</p>
+        <a href="tel:6032025309" class="hero-phone-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          603-202-5309
+        </a>
       </div>
-      <div class="hero-badge">
-        <span class="badge-icon">&#9742;</span>
-        <a href="tel:6032025309">603-202-5309</a>
+      <div class="hero-form-card">
+        <div class="hero-form-header">
+          <p class="hero-form-title">Get a Free Estimate</p>
+          <p class="hero-form-sub">No obligation — we'll get back to you fast.</p>
+        </div>
+        <form name="hero-contact" netlify>
+          <div class="form-row">
+            <input type="text" name="first-name" placeholder="First Name" required />
+            <input type="text" name="last-name" placeholder="Last Name" required />
+          </div>
+          <input type="tel" name="phone" placeholder="Phone Number" />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <button type="submit" class="btn btn-primary btn-full">Get My Free Estimate</button>
+        </form>
+        <a href="#services" class="btn btn-ghost btn-full hero-services-btn">See Our Services</a>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- TESTIMONIALS — near top for instant credibility -->
+  <section class="section-testi" id="testimonials">
+    <div class="container">
+      <p class="eyebrow">What Our Customers Say</p>
+      <h2 class="section-title">Real Results. Real People.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"Justin was professional, on time, and the work was flawless. My living room looks brand new. Will absolutely hire VixFix again."</p>
+          <span class="reviewer">— Sarah M., Manchester NH</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"Called about water damage on a Friday, he was there Saturday morning. Fixed the drywall, repainted it, and you'd never know it happened."</p>
+          <span class="reviewer">— Tom R., Nashua NH</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"Hired VixFix for TV mounting and some carpentry work. Super clean job, reasonable price, great communication throughout."</p>
+          <span class="reviewer">— Mike D., Concord NH</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES — Swiper carousel (desktop + mobile) -->
   <section class="section" id="services">
     <div class="container">
       <p class="eyebrow">What We Do</p>
       <h2 class="section-title">Complete Home Repair &amp; Improvement</h2>
       <p class="section-sub">From small fixes to major renovations — we handle it all with the same care and craftsmanship.</p>
-      <div class="services-grid">
-
-        <div class="service-card">
-          <div class="card-icon">&#127748;</div>
-          <h3>Painting</h3>
-          <p>Interior and exterior painting that protects and beautifies your home. Clean lines, lasting finishes.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#128296;</div>
-          <h3>Carpentry</h3>
-          <p>Custom framing, trim work, cabinetry, and structural repairs done right the first time.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#127968;</div>
-          <h3>Flooring</h3>
-          <p>Hardwood, laminate, tile, and vinyl installs or repairs to transform any room.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#9889;</div>
-          <h3>Electrical Work</h3>
-          <p>Safe, code-compliant electrical repairs and upgrades handled by experienced hands.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#128167;</div>
-          <h3>Water Damage Restoration</h3>
-          <p>Don't let water damage get you down — we assess, repair, and restore fast.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#128167;</div>
-          <h3>Drywall &amp; Plaster</h3>
-          <p>Patch, repair, and finish drywall to a smooth, paint-ready surface every time.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#128250;</div>
-          <h3>TV Mounting &amp; Install</h3>
-          <p>Professional TV wall mounting with clean wire management for any room or setup.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="card-icon">&#128386;</div>
-          <h3>Furniture Restoration</h3>
-          <p>Bring worn furniture back to life — sofas, tables, and more refinished like new.</p>
-        </div>
-
-      </div>
-      <p class="services-note">Don't see your service? <a href="#contact">Shoot us a message</a> — chances are we can help.</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section section-dark" id="about">
-    <div class="container about-grid">
-      <div class="about-text">
-        <p class="eyebrow eyebrow-light">About VixFix</p>
-        <h2 class="section-title">Heart &amp; Soul in Every Project</h2>
-        <p>VixFix Professional Services LLC was founded by Justin Vickery — a multi-trade craftsman with years of hands-on experience across painting, carpentry, drywall, framing, and major renovations.</p>
-        <p>Justin's philosophy is simple: <strong>"Putting heart and soul into every project is essential to achieving a polished, professional result."</strong> That mindset drives everything from the smallest repair to a full-scale renovation.</p>
-        <p>We've expanded our capabilities to serve homeowners with a wider range of needs — including TV mounting, window treatments, and even automotive maintenance — backed by a growing network of skilled subcontractors ready for any project size.</p>
-        <a href="#contact" class="btn btn-primary">Work With Justin</a>
-      </div>
-      <div class="about-visual">
-        <div class="about-card-stack">
-          <div class="stat-card">
-            <span class="stat-num">10+</span>
-            <span class="stat-label">Years of Experience</span>
+      <div class="services-carousel-wrap">
+        <div class="swiper services-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/><path d="M14.5 17.5 4.5 15"/></svg></div>
+                <h3>Painting</h3>
+                <p>Interior and exterior painting that protects and beautifies your home. Clean lines, lasting finishes.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3l8.5-8.5"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg></div>
+                <h3>Carpentry</h3>
+                <p>Custom framing, trim work, cabinetry, and structural repairs done right the first time.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+                <h3>Flooring</h3>
+                <p>Hardwood, laminate, tile, and vinyl installs or repairs to transform any room.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <h3>Electrical Work</h3>
+                <p>Safe, code-compliant electrical repairs and upgrades handled by experienced hands.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg></div>
+                <h3>Water Damage Restoration</h3>
+                <p>Don't let water damage get you down — we assess, repair, and restore fast.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+                <h3>Drywall &amp; Plaster</h3>
+                <p>Patch, repair, and finish drywall to a smooth, paint-ready surface every time.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <h3>TV Mounting &amp; Install</h3>
+                <p>Professional TV wall mounting with clean wire management for any room or setup.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg></div>
+                <h3>Furniture Restoration</h3>
+                <p>Bring worn furniture back to life — sofas, tables, and more refinished like new.</p>
+              </div>
+            </div>
           </div>
-          <div class="stat-card">
-            <span class="stat-num">100+</span>
-            <span class="stat-label">Projects Completed</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">5★</span>
-            <span class="stat-label">Customer Rating</span>
-          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section" id="process">
-    <div class="container">
-      <p class="eyebrow">How It Works</p>
-      <h2 class="section-title">Simple. Fast. Done Right.</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="step-num">01</div>
-          <h3>Contact Us</h3>
-          <p>Call or fill out the form. Tell us what you need — no job too small or too big.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-num">02</div>
-          <h3>Free Estimate</h3>
-          <p>We come to you, assess the project, and give you a clear, honest quote.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-num">03</div>
-          <h3>We Get to Work</h3>
-          <p>Justin and the VixFix team show up on time and get the job done with care.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-num">04</div>
-          <h3>You Love It</h3>
-          <p>We don't leave until you're 100% satisfied with the result.</p>
-        </div>
-      </div>
+      <p class="services-note" style="margin-top: 16px;">Don't see your service? <a href="#contact">Shoot us a message</a> — chances are we can help.</p>
     </div>
   </section>
 
@@ -177,58 +193,45 @@
       <p class="section-sub">A look at some of the homes and spaces we've transformed.</p>
       <div class="projects-grid">
         <div class="project-card">
-          <div class="project-img project-img-1"></div>
-          <div class="project-info">
-            <h4>Interior Repaint</h4>
-            <p>Full interior repaint with trim work — clean, bright finish throughout.</p>
+          <div class="project-img project-img-1">
+            <img src="images/interior-repaint.jpg" alt="Interior repaint with clean trim work and bright finish" loading="lazy" />
           </div>
+          <div class="project-info"><h4>Interior Repaint</h4><p>Full interior repaint with trim work — clean, bright finish throughout.</p></div>
         </div>
         <div class="project-card">
-          <div class="project-img project-img-2"></div>
-          <div class="project-info">
-            <h4>Water Damage Repair</h4>
-            <p>Drywall replacement and refinish after ceiling water damage.</p>
+          <div class="before-after-wrap">
+            <div class="before-after-img"><img src="images/water-damage-before.webp" alt="Ceiling before water damage repair" loading="lazy" /><span class="ba-label">Before</span></div>
+            <div class="before-after-img"><img src="images/water-damage-after.webp" alt="Ceiling after water damage repair" loading="lazy" /><span class="ba-label ba-label-after">After</span></div>
           </div>
+          <div class="project-info"><h4>Water Damage Repair</h4><p>Drywall replacement and refinish after ceiling water damage.</p></div>
         </div>
         <div class="project-card">
-          <div class="project-img project-img-3"></div>
-          <div class="project-info">
-            <h4>Hardwood Floor Install</h4>
-            <p>New hardwood flooring installed throughout main living area.</p>
+          <div class="project-img project-img-3">
+            <img src="images/hardwood-floor.jpg" alt="New hardwood flooring installed in main living area" loading="lazy" />
           </div>
+          <div class="project-info"><h4>Hardwood Floor Install</h4><p>New hardwood flooring installed throughout main living area.</p></div>
         </div>
         <div class="project-card">
-          <div class="project-img project-img-4"></div>
-          <div class="project-info">
-            <h4>Furniture Restoration</h4>
-            <p>Sofa reupholstery and wood frame repair — like new again.</p>
+          <div class="before-after-wrap">
+            <div class="before-after-img"><img src="images/furniture-before.webp" alt="Sofa before restoration" loading="lazy" /><span class="ba-label">Before</span></div>
+            <div class="before-after-img"><img src="images/furniture-after.webp" alt="Sofa after reupholstery" loading="lazy" /><span class="ba-label ba-label-after">After</span></div>
           </div>
+          <div class="project-info"><h4>Furniture Restoration</h4><p>Sofa reupholstery and wood frame repair — like new again.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section" id="testimonials">
+  <!-- PROCESS -->
+  <section class="section" id="process">
     <div class="container">
-      <p class="eyebrow">Happy Customers</p>
-      <h2 class="section-title">Hear From Our Clients</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Justin was professional, on time, and the work was flawless. My living room looks brand new. Will absolutely hire VixFix again."</p>
-          <span class="reviewer">— Sarah M., Manchester NH</span>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Called about water damage on a Friday, he was there Saturday morning. Fixed the drywall, repainted it, and you'd never know it happened."</p>
-          <span class="reviewer">— Tom R., Nashua NH</span>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Hired VixFix for TV mounting and some carpentry work. Super clean job, reasonable price, great communication throughout."</p>
-          <span class="reviewer">— Mike D., Concord NH</span>
-        </div>
+      <p class="eyebrow">How It Works</p>
+      <h2 class="section-title">Simple. Fast. Done Right.</h2>
+      <div class="process-grid">
+        <div class="process-step"><div class="step-num">01</div><h3>Contact Us</h3><p>Call or fill out the form. Tell us what you need — no job too small or too big.</p></div>
+        <div class="process-step"><div class="step-num">02</div><h3>Free Estimate</h3><p>We come to you, assess the project, and give you a clear, honest quote.</p></div>
+        <div class="process-step"><div class="step-num">03</div><h3>We Get to Work</h3><p>Justin and the VixFix team show up on time and get the job done with care.</p></div>
+        <div class="process-step"><div class="step-num">04</div><h3>You Love It</h3><p>We don't leave until you're 100% satisfied with the result.</p></div>
       </div>
     </div>
   </section>
@@ -242,23 +245,24 @@
         <p>Fill out the form or give Justin a call. We'll get back to you fast with a free, no-obligation estimate.</p>
         <div class="contact-info">
           <div class="contact-item">
-            <span>&#9742;</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
             <a href="tel:6032025309">603-202-5309</a>
           </div>
           <div class="contact-item">
-            <span>&#128205;</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>Serving New Hampshire</span>
           </div>
         </div>
       </div>
       <form class="contact-form" name="contact" netlify>
         <div class="form-row">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="tel" name="phone" placeholder="Phone Number" />
+          <input type="text" name="first-name" placeholder="First Name" required />
+          <input type="text" name="last-name" placeholder="Last Name" required />
         </div>
+        <input type="tel" name="phone" placeholder="Phone Number" />
         <input type="email" name="email" placeholder="Email Address" required />
         <textarea name="message" rows="4" placeholder="Describe your project — what needs fixing?" required></textarea>
-        <button type="submit" class="btn btn-primary btn-full">Send My Free Quote Request</button>
+        <button type="submit" class="btn btn-primary btn-full">Send My Free Estimate Request</button>
       </form>
     </div>
   </section>
@@ -274,9 +278,10 @@
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -284,9 +289,7 @@
         <h4>Contact</h4>
         <p><a href="tel:6032025309">603-202-5309</a></p>
         <p>Serving NH</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">&#128100; Facebook</a>
-        </div>
+        <div class="footer-social"><a href="#" aria-label="Facebook">Facebook</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -294,6 +297,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

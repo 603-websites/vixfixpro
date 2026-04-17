@@ -6,7 +6,6 @@ toggle?.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-// Close nav on link click
 navLinks?.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
@@ -30,8 +29,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Basic form submit feedback
 const form = document.querySelector('.contact-form');
-form?.addEventListener('submit', e => {
+form?.addEventListener('submit', () => {
   const btn = form.querySelector('button[type="submit"]');
   btn.textContent = 'Sending...';
   btn.disabled = true;
+});
+
+// Services Swiper — always active on desktop and mobile
+document.querySelectorAll('.services-swiper').forEach(el => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 7000,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true
+    },
+    navigation: {
+      nextEl: el.querySelector('.swiper-button-next'),
+      prevEl: el.querySelector('.swiper-button-prev')
+    },
+    breakpoints: {
+      640: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 3, spaceBetween: 24 }
+    }
+  });
 });
