@@ -60,3 +60,21 @@ document.querySelectorAll('.services-swiper').forEach(el => {
     }
   });
 });
+
+// Mobile-only Swipers — Testimonials, Projects, Process, Reviews
+// Disabled at ≥769px so desktop grid CSS takes over
+document.querySelectorAll('.testimonials-swiper, .projects-home-swiper, .process-swiper, .reviews-swiper').forEach(el => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: false,
+    grabCursor: true,
+    pagination: {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true
+    },
+    breakpoints: {
+      769: { enabled: false }
+    }
+  });
+});

@@ -295,6 +295,28 @@ img { max-width: 100%; display: block; }
 .hero-phone-btn:hover { background: rgba(3,74,28,0.18); }
 .hero-phone-btn svg { color: var(--green); flex-shrink: 0; }
 
+/* Hero button row — phone + Free Estimate side by side */
+.hero-btn-row { display: flex; gap: 12px; align-items: stretch; }
+
+/* Free Estimate button — hidden on desktop (form card is visible), shown on mobile */
+.hero-estimate-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: var(--border-yellow);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+  text-align: center;
+}
+.hero-estimate-btn:hover { background: var(--yellow-hover); }
+
 /* Right column: estimate form card */
 .hero-form-card {
   background: rgba(12, 12, 12, 0.82);
@@ -890,68 +912,70 @@ img { max-width: 100%; display: block; }
 .swiper-pagination-bullet-active { background: var(--green) !important; opacity: 1; }
 
 /* ============================================================
-   MOBILE SCROLL-SNAP CAROUSELS
-   (Testimonials, Process, Projects — mobile only)
+   MOBILE-ONLY SWIPERS — desktop grid overrides
+   When Swiper is disabled (≥769px), restore original grid layouts
    ============================================================ */
-@media (max-width: 768px) {
-  /* Prevent scroll-snap containers from bleeding outside their section */
-  .section-testi,
-  #process,
-  #projects { overflow-x: hidden; }
-
-  .testimonials-grid {
-    display: flex !important;
-    grid-template-columns: unset !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding-bottom: 20px;
-    scrollbar-width: none;
+@media (min-width: 769px) {
+  .testimonials-swiper { margin-top: 48px; }
+  .testimonials-swiper .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    transform: none !important;
+    flex-direction: unset !important;
   }
-  .testimonials-grid::-webkit-scrollbar { display: none; }
-  .testimonials-grid .testimonial-card {
-    flex: 0 0 85%;
-    scroll-snap-align: start;
-    min-width: 0;
-  }
+  .testimonials-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .testimonials-swiper .swiper-pagination { display: none !important; }
 
-  .process-grid {
-    display: flex !important;
-    grid-template-columns: unset !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  .projects-home-swiper { margin-top: 48px; }
+  .projects-home-swiper .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    transform: none !important;
+    flex-direction: unset !important;
+  }
+  .projects-home-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .projects-home-swiper .swiper-pagination { display: none !important; }
+
+  .process-swiper { margin-top: 48px; }
+  .process-swiper .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2px;
-    padding-bottom: 8px;
+    transform: none !important;
+    flex-direction: unset !important;
+  }
+  .process-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .process-swiper .swiper-pagination { display: none !important; }
+
+  .reviews-swiper { margin-top: 48px; }
+  .reviews-swiper .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    transform: none !important;
+    flex-direction: unset !important;
+  }
+  .reviews-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .reviews-swiper .swiper-pagination { display: none !important; }
+}
+
+/* Mobile swiper spacing and dots */
+@media (max-width: 768px) {
+  .testimonials-swiper,
+  .projects-home-swiper,
+  .process-swiper,
+  .reviews-swiper {
     margin-top: 32px;
-    scrollbar-width: none;
-  }
-  .process-grid::-webkit-scrollbar { display: none; }
-  .process-step {
-    flex: 0 0 82%;
-    scroll-snap-align: start;
+    padding-bottom: 40px !important;
+    overflow: hidden !important;
   }
 
-  .projects-grid {
-    display: flex !important;
-    grid-template-columns: unset !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding-bottom: 8px;
-    margin-top: 48px;
-    scrollbar-width: none;
-  }
-  .projects-grid::-webkit-scrollbar { display: none; }
-  .project-card {
-    flex: 0 0 88%;
-    scroll-snap-align: start;
-    min-width: 0;
-  }
-
-  .section-testi .testimonials-grid { margin-top: 24px; }
+  /* Show Free Estimate button beside phone button */
+  .hero-estimate-btn { display: inline-flex; }
+  .hero-btn-row .hero-phone-btn,
+  .hero-btn-row .hero-estimate-btn { flex: 1; justify-content: center; }
 }
 
 /* ============================================================
