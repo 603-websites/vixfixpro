@@ -489,6 +489,9 @@ img { max-width: 100%; display: block; }
   border-bottom: 3px solid var(--yellow);
   background: var(--white);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .step-num {
@@ -500,7 +503,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 16px;
 }
 .process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-.process-step p { font-size: 0.88rem; color: var(--mid); }
+.process-step p { font-size: 0.88rem; color: var(--mid); flex: 1; }
 
 /* ============================================================
    PROJECTS
@@ -632,11 +635,14 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   background: var(--white);
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .stars { display: flex; gap: 3px; color: var(--green); margin-bottom: 16px; }
 .stars svg { display: block; }
-.testimonial-card p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-.reviewer { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dark); }
+.testimonial-card p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-bottom: 20px; font-style: italic; flex: 1; }
+.reviewer { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dark); margin-top: auto; }
 
 /* ============================================================
    CONTACT
@@ -924,7 +930,7 @@ img { max-width: 100%; display: block; }
     transform: none !important;
     flex-direction: unset !important;
   }
-  .testimonials-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .testimonials-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; display: flex; }
   .testimonials-swiper .swiper-pagination { display: none !important; }
 
   .projects-home-swiper { margin-top: 48px; }
@@ -946,7 +952,7 @@ img { max-width: 100%; display: block; }
     transform: none !important;
     flex-direction: unset !important;
   }
-  .process-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .process-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; display: flex; }
   .process-swiper .swiper-pagination { display: none !important; }
 
   .reviews-swiper { margin-top: 48px; }
@@ -957,7 +963,7 @@ img { max-width: 100%; display: block; }
     transform: none !important;
     flex-direction: unset !important;
   }
-  .reviews-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .reviews-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; display: flex; }
   .reviews-swiper .swiper-pagination { display: none !important; }
 }
 
@@ -1029,9 +1035,12 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   background: var(--white);
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .review-card-full .stars { display: flex; gap: 4px; color: var(--green); margin-bottom: 20px; }
-.review-card-full blockquote { font-size: 1.05rem; color: var(--mid); line-height: 1.75; font-style: italic; margin-bottom: 24px; }
+.review-card-full blockquote { font-size: 1.05rem; color: var(--mid); line-height: 1.75; font-style: italic; margin-bottom: 24px; flex: 1; }
 .review-card-full .reviewer-name { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dark); }
 .review-card-full .reviewer-location { font-size: 0.8rem; color: var(--light-text); margin-top: 3px; }
 .review-card-full .reviewer { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
