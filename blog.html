@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -40,9 +41,11 @@
       </button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
         <li><a href="index.html#contact" class="nav-cta">Free Estimate</a></li>
       </ul>
     </nav>
@@ -62,80 +65,95 @@
     <div class="container">
       <p class="eyebrow">Recent Articles</p>
       <h2 class="section-title">Latest from the <em>VixFix Blog</em></h2>
-      <div class="blog-grid">
+      <div class="swiper blog-page-swiper blog-card-swiper">
+        <div class="swiper-wrapper">
 
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <span class="blog-card-img-label">Water Damage</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Guide</p>
-            <p class="blog-card-title">13 Things Every NH Homeowner Should Know Before a Water Damage Repair</p>
-            <p class="blog-card-excerpt">Before you call a contractor or file an insurance claim, know what you're looking at. This guide walks through everything from assessing the damage to choosing the right repair approach.</p>
-            <a href="/blog/water-damage-repair-nh-homeowners-guide.html" class="blog-card-link">Read More →</a>
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <span class="blog-card-img-label">Water Damage</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Guide</p>
+              <p class="blog-card-title">13 Things Every NH Homeowner Should Know Before a Water Damage Repair</p>
+              <p class="blog-card-excerpt">Before you call a contractor or file an insurance claim, know what you're looking at. This guide walks through everything from assessing the damage to choosing the right repair approach.</p>
+              <a href="/blog/water-damage-repair-nh-homeowners-guide.html" class="blog-card-link">Read More →</a>
+            </div>
           </div>
         </div>
 
-        <div class="blog-card">
-          <div class="blog-card-img blog-card-img-2">
-            <span class="blog-card-img-label">Painting</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Guide</p>
-            <p class="blog-card-title">Interior Painting in New Hampshire: A Homeowner's Complete Guide</p>
-            <p class="blog-card-excerpt">NH's humidity swings and cold winters make paint selection and prep more important than you'd think. Here's how to get a finish that actually lasts.</p>
-            <a href="/blog/interior-painting-new-hampshire-guide.html" class="blog-card-link">Read More →</a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img blog-card-img-3">
-            <span class="blog-card-img-label">Flooring</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Tips</p>
-            <p class="blog-card-title">Hardwood vs. Laminate vs. LVP: Which Flooring Survives New England Winters Best?</p>
-            <p class="blog-card-excerpt">Not all flooring handles NH winters the same way. We break down how each option performs under temperature swings, humidity, and heavy foot traffic.</p>
-            <a href="/blog/flooring-new-england-winters.html" class="blog-card-link">Read More →</a>
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img blog-card-img-2">
+              <span class="blog-card-img-label">Painting</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Guide</p>
+              <p class="blog-card-title">Interior Painting in New Hampshire: A Homeowner's Complete Guide</p>
+              <p class="blog-card-excerpt">NH's humidity swings and cold winters make paint selection and prep more important than you'd think. Here's how to get a finish that actually lasts.</p>
+              <a href="/blog/interior-painting-new-hampshire-guide.html" class="blog-card-link">Read More →</a>
+            </div>
           </div>
         </div>
 
-        <div class="blog-card">
-          <div class="blog-card-img blog-card-img-4">
-            <span class="blog-card-img-label">Advice</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Guide</p>
-            <p class="blog-card-title">When to Call a Handyman vs. a Licensed Contractor: A Homeowner's Honest Guide</p>
-            <p class="blog-card-excerpt">The line between handyman work and licensed contractor territory isn't always obvious. Here's a straight answer so you hire the right person the first time.</p>
-            <a href="/blog/handyman-vs-licensed-contractor-nh.html" class="blog-card-link">Read More →</a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img blog-card-img-5">
-            <span class="blog-card-img-label">TV Mounting</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Tips</p>
-            <p class="blog-card-title">TV Mounting Done Right: Stud-Finding, Cable Management &amp; 5 DIY Mistakes</p>
-            <p class="blog-card-excerpt">Most TV mounting mistakes are avoidable. We cover the right way to find studs, run cables, and mount a TV that won't move — plus the five errors DIYers make most often.</p>
-            <a href="/blog/tv-mounting-guide-mistakes-to-avoid.html" class="blog-card-link">Read More →</a>
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img blog-card-img-3">
+              <span class="blog-card-img-label">Flooring</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Tips</p>
+              <p class="blog-card-title">Hardwood vs. Laminate vs. LVP: Which Flooring Survives New England Winters Best?</p>
+              <p class="blog-card-excerpt">Not all flooring handles NH winters the same way. We break down how each option performs under temperature swings, humidity, and heavy foot traffic.</p>
+              <a href="/blog/flooring-new-england-winters.html" class="blog-card-link">Read More →</a>
+            </div>
           </div>
         </div>
 
-        <div class="blog-card">
-          <div class="blog-card-img blog-card-img-6">
-            <span class="blog-card-img-label">Furniture</span>
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Tips</p>
-            <p class="blog-card-title">Restoring vs. Replacing: When Old Furniture Is Worth Saving</p>
-            <p class="blog-card-excerpt">That sofa or dining table from 30 years ago might be worth more than you think — if the bones are solid. Here's how to decide whether to restore or let go.</p>
-            <a href="/blog/furniture-restoration-vs-replacement.html" class="blog-card-link">Read More →</a>
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img blog-card-img-4">
+              <span class="blog-card-img-label">Advice</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Guide</p>
+              <p class="blog-card-title">When to Call a Handyman vs. a Licensed Contractor: A Homeowner's Honest Guide</p>
+              <p class="blog-card-excerpt">The line between handyman work and licensed contractor territory isn't always obvious. Here's a straight answer so you hire the right person the first time.</p>
+              <a href="/blog/handyman-vs-licensed-contractor-nh.html" class="blog-card-link">Read More →</a>
+            </div>
           </div>
         </div>
 
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img blog-card-img-5">
+              <span class="blog-card-img-label">TV Mounting</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Tips</p>
+              <p class="blog-card-title">TV Mounting Done Right: Stud-Finding, Cable Management &amp; 5 DIY Mistakes</p>
+              <p class="blog-card-excerpt">Most TV mounting mistakes are avoidable. We cover the right way to find studs, run cables, and mount a TV that won't move — plus the five errors DIYers make most often.</p>
+              <a href="/blog/tv-mounting-guide-mistakes-to-avoid.html" class="blog-card-link">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="blog-card">
+            <div class="blog-card-img blog-card-img-6">
+              <span class="blog-card-img-label">Furniture</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-tag">Tips</p>
+              <p class="blog-card-title">Restoring vs. Replacing: When Old Furniture Is Worth Saving</p>
+              <p class="blog-card-excerpt">That sofa or dining table from 30 years ago might be worth more than you think — if the bones are solid. Here's how to decide whether to restore or let go.</p>
+              <a href="/blog/furniture-restoration-vs-replacement.html" class="blog-card-link">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -186,7 +204,7 @@
         <h4>Contact</h4>
         <p><a href="tel:6032025309">603-202-5309</a></p>
         <p>Serving NH</p>
-        <div class="footer-social"><a href="#" aria-label="Facebook">Facebook</a></div>
+        <div class="footer-social"><a href="https://www.facebook.com/p/VixFix-Professional-Services-LLC-61570549505960/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -194,6 +212,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

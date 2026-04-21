@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -40,9 +41,11 @@
       </button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
         <li><a href="index.html#contact" class="nav-cta">Free Estimate</a></li>
       </ul>
     </nav>
@@ -63,55 +66,74 @@
       <p class="eyebrow">Our Service Area</p>
       <h2 class="section-title">Find Your <em>City</em></h2>
       <p class="section-sub">Click your city below to see local service information, common home repair needs, and how VixFix can help.</p>
-      <div class="city-grid">
-        <a href="/service-areas/manchester-nh.html" class="city-card">
-          <p class="city-card-name">Manchester</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">NH's largest city. Millyard-era housing, older triple-deckers, and craftsman bungalows with consistent repair and painting needs.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/nashua-nh.html" class="city-card">
-          <p class="city-card-name">Nashua</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">NH's second-largest city. Mix of historic downtown homes and newer south-side subdivisions, from colonials to two-family homes.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/concord-nh.html" class="city-card">
-          <p class="city-card-name">Concord</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">The state capital and Justin's home base. Historic South End Victorians, downtown colonials, and newer north-side neighborhoods.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/salem-nh.html" class="city-card">
-          <p class="city-card-name">Salem</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">Gateway town on the MA border. 1960s-80s ranches, split-levels, and capes ready for interior updates and fresh paint.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/derry-nh.html" class="city-card">
-          <p class="city-card-name">Derry</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">Historic village center meets growing subdivisions. Old farmhouses, colonials, and newer builds all served with equal care.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/bedford-nh.html" class="city-card">
-          <p class="city-card-name">Bedford</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">Manchester's premier suburb. Well-appointed colonials and newer construction where homeowners expect premium-quality finishes.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/londonderry-nh.html" class="city-card">
-          <p class="city-card-name">Londonderry</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">One of southern NH's fastest-growing towns. 1980s-2000s colonials and garrisons with flooring, painting, and drywall needs.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
-        <a href="/service-areas/merrimack-nh.html" class="city-card">
-          <p class="city-card-name">Merrimack</p>
-          <p class="city-card-state">New Hampshire</p>
-          <p class="city-card-desc">Between Manchester and Nashua on the Merrimack River. 1980s-90s builds with painting, water damage, and flooring needs.</p>
-          <span class="city-card-arrow">View Services →</span>
-        </a>
+      <div class="swiper city-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="/service-areas/manchester-nh.html" class="city-card">
+              <p class="city-card-name">Manchester</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">NH's largest city. Millyard-era housing, older triple-deckers, and craftsman bungalows with consistent repair and painting needs.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/nashua-nh.html" class="city-card">
+              <p class="city-card-name">Nashua</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">NH's second-largest city. Mix of historic downtown homes and newer south-side subdivisions, from colonials to two-family homes.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/concord-nh.html" class="city-card">
+              <p class="city-card-name">Concord</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">The state capital and Justin's home base. Historic South End Victorians, downtown colonials, and newer north-side neighborhoods.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/salem-nh.html" class="city-card">
+              <p class="city-card-name">Salem</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">Gateway town on the MA border. 1960s-80s ranches, split-levels, and capes ready for interior updates and fresh paint.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/derry-nh.html" class="city-card">
+              <p class="city-card-name">Derry</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">Historic village center meets growing subdivisions. Old farmhouses, colonials, and newer builds all served with equal care.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/bedford-nh.html" class="city-card">
+              <p class="city-card-name">Bedford</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">Manchester's premier suburb. Well-appointed colonials and newer construction where homeowners expect premium-quality finishes.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/londonderry-nh.html" class="city-card">
+              <p class="city-card-name">Londonderry</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">One of southern NH's fastest-growing towns. 1980s-2000s colonials and garrisons with flooring, painting, and drywall needs.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="/service-areas/merrimack-nh.html" class="city-card">
+              <p class="city-card-name">Merrimack</p>
+              <p class="city-card-state">New Hampshire</p>
+              <p class="city-card-desc">Between Manchester and Nashua on the Merrimack River. 1980s-90s builds with painting, water damage, and flooring needs.</p>
+              <span class="city-card-arrow">View Services →</span>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -162,7 +184,7 @@
         <h4>Contact</h4>
         <p><a href="tel:6032025309">603-202-5309</a></p>
         <p>Serving NH</p>
-        <div class="footer-social"><a href="#" aria-label="Facebook">Facebook</a></div>
+        <div class="footer-social"><a href="https://www.facebook.com/p/VixFix-Professional-Services-LLC-61570549505960/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -170,6 +192,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

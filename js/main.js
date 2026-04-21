@@ -61,9 +61,9 @@ document.querySelectorAll('.services-swiper').forEach(el => {
   });
 });
 
-// Mobile-only Swipers — Testimonials, Projects, Process, Reviews
+// Mobile-only Swipers — Testimonials, Projects, Process, FAQ, Blog, Cities, Why Choose, Reviews
 // Disabled at ≥769px so desktop grid CSS takes over
-document.querySelectorAll('.testimonials-swiper, .projects-home-swiper, .process-swiper, .reviews-swiper').forEach(el => {
+document.querySelectorAll('.testimonials-swiper, .projects-home-swiper, .process-swiper, .faq-swiper, .blog-card-swiper, .city-swiper, .sa-why-swiper, .reviews-swiper').forEach(el => {
   new Swiper(el, {
     slidesPerView: 1,
     spaceBetween: 16,
