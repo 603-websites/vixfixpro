@@ -370,7 +370,8 @@ img { max-width: 100%; display: block; }
   gap: 12px;
 }
 
-.hero-form-card input {
+.hero-form-card input,
+.hero-form-card textarea {
   width: 100%;
   padding: 13px 14px;
   background: rgba(255,255,255,0.07);
@@ -381,8 +382,15 @@ img { max-width: 100%; display: block; }
   font-size: 0.875rem;
   transition: border-color 0.2s;
 }
-.hero-form-card input::placeholder { color: rgba(255,255,255,0.35); }
-.hero-form-card input:focus { outline: none; border-color: var(--yellow); }
+.hero-form-card textarea {
+  min-height: 108px;
+  line-height: 1.5;
+  resize: vertical;
+}
+.hero-form-card input::placeholder,
+.hero-form-card textarea::placeholder { color: rgba(255,255,255,0.35); }
+.hero-form-card input:focus,
+.hero-form-card textarea:focus { outline: none; border-color: var(--yellow); }
 
 .hero-services-btn {
   margin-top: 2px;
@@ -1126,12 +1134,13 @@ img { max-width: 100%; display: block; }
 
   .sa-why-swiper { margin-top: 36px; }
   .sa-why-swiper .swiper-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     transform: none !important;
+    flex-direction: unset !important;
   }
-  .sa-why-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; display: flex; }
+  .sa-why-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; display: flex; min-width: 0; }
   .sa-why-swiper .swiper-pagination { display: none !important; }
 }
 
@@ -1157,6 +1166,7 @@ img { max-width: 100%; display: block; }
 
   /* Hide estimate form card — Free Estimate button handles this CTA on mobile */
   .hero-form-card { display: none; }
+  .modal-backdrop .hero-form-card { display: flex; }
 }
 
 /* ============================================================
@@ -1590,17 +1600,22 @@ img { max-width: 100%; display: block; }
   color: var(--mid);
   font-size: 1rem;
 }
+.sa-why-swiper {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .sa-why-item {
   position: relative;
   display: block;
   width: 100%;
   min-height: 100%;
-  padding: 22px 24px 22px 52px;
-  background: var(--white);
-  border: 1px solid rgba(3,74,28,0.12);
-  border-top: 3px solid var(--yellow);
+  padding: 24px 26px 24px 58px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbf7 100%);
+  border: 1px solid rgba(3,74,28,0.14);
+  border-top: 4px solid var(--yellow);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
   font-size: 0.95rem;
   color: var(--mid);
   line-height: 1.7;
@@ -1609,20 +1624,47 @@ img { max-width: 100%; display: block; }
   content: '✓';
   position: absolute;
   left: 22px;
-  top: 23px;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: rgba(3,74,28,0.1);
   color: var(--green);
+  border-radius: 50%;
   font-weight: 900;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1;
 }
 .sa-why-item strong { color: var(--dark); }
 .sa-testimonial {
-  background: var(--off-white);
-  border-left: 4px solid var(--yellow);
-  padding: 32px 36px;
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(3,74,28,0.12);
+  border-top: 4px solid var(--yellow);
+  padding: 36px 40px;
   border-radius: var(--radius);
-  margin-top: 48px;
+  margin: 48px auto 0;
   max-width: 680px;
+  text-align: center;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.1);
+}
+.sa-testimonial::before {
+  content: '“';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: var(--yellow);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
 }
 .sa-testimonial blockquote {
   font-size: 1.05rem;
@@ -1643,9 +1685,9 @@ img { max-width: 100%; display: block; }
 @media (max-width: 700px) {
   .faq-section { padding: 64px 0; }
   .faq-item { padding: 28px 24px; }
-  .sa-why-item { padding: 20px 20px 20px 48px; font-size: 0.92rem; }
-  .sa-why-item::before { left: 20px; top: 22px; }
-  .sa-testimonial { padding: 28px 24px; margin-top: 36px; }
+  .sa-why-item { padding: 22px 20px 22px 54px; font-size: 0.92rem; }
+  .sa-why-item::before { left: 18px; top: 22px; }
+  .sa-testimonial { padding: 36px 24px 28px; margin-top: 36px; }
 }
 
 /* ============================================================

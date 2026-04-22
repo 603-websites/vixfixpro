@@ -29,7 +29,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Estimate modal — open/close, focus trap, body scroll lock, Esc to close
-(function () {
+function initEstimateModal() {
   const modal = document.getElementById('estimate-modal');
   if (!modal) return;
 
@@ -56,13 +56,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     lastTrigger?.focus();
   }
 
-  // Bind every Free Estimate trigger
-  document.querySelectorAll('[data-estimate-trigger]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      open(btn);
-    });
-  });
+  // Bind every Free Estimate trigger in capture phase so CTAs never follow
+  // their fallback href before the modal opens.
+  document.addEventListener('click', e => {
+    const trigger = e.target.closest('[data-estimate-trigger]');
+    if (!trigger) return;
+    e.preventDefault();
+    e.stopPropagation();
+    open(trigger);
+  }, true);
 
   closeBtn?.addEventListener('click', close);
   modal.addEventListener('click', e => { if (e.target === modal) close(); });
@@ -86,7 +88,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const sb = mform.querySelector('button[type="submit"]');
     if (sb) { sb.textContent = 'Sending...'; sb.disabled = true; }
   });
-}());
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEstimateModal);
+} else {
+  initEstimateModal();
+}
 
 // Basic form submit feedback
 const form = document.querySelector('.contact-form');
