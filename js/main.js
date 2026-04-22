@@ -10,11 +10,11 @@ navLinks?.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-// Sticky header shadow
+// Sticky nav — add .scrolled class after 80px scroll
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
-  header.style.boxShadow = window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.4)' : 'none';
-});
+  header?.classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -35,35 +35,40 @@ form?.addEventListener('submit', () => {
   btn.disabled = true;
 });
 
-// Services Swiper — always active on desktop and mobile
-document.querySelectorAll('.services-swiper').forEach(el => {
-  new Swiper(el, {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    autoplay: {
-      delay: 7000,
-      pauseOnMouseEnter: true,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: el.querySelector('.swiper-pagination'),
-      clickable: true
-    },
-    navigation: {
-      nextEl: el.querySelector('.swiper-button-next'),
-      prevEl: el.querySelector('.swiper-button-prev')
-    },
-    breakpoints: {
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      1024: { slidesPerView: 3, spaceBetween: 24 }
-    }
-  });
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox?.querySelector('.lightbox-img');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.project-img img, .before-after-img img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
 });
 
-// Mobile-only Swipers — Testimonials, Projects, Process, FAQ, Blog, Cities, Why Choose, Reviews
+lightbox?.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+lightbox?.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// Mobile-only Swipers — Testimonials, FAQ, Blog, Cities, Why Choose, Reviews
 // Disabled at ≥769px so desktop grid CSS takes over
-document.querySelectorAll('.testimonials-swiper, .projects-home-swiper, .process-swiper, .faq-swiper, .blog-card-swiper, .city-swiper, .sa-why-swiper, .reviews-swiper').forEach(el => {
+document.querySelectorAll('.testimonials-swiper, .faq-swiper, .blog-card-swiper, .city-swiper, .sa-why-swiper, .reviews-swiper').forEach(el => {
   new Swiper(el, {
     slidesPerView: 1,
     spaceBetween: 16,
