@@ -83,3 +83,128 @@ document.querySelectorAll('.testimonials-swiper, .faq-swiper, .blog-card-swiper,
     }
   });
 });
+
+// Services carousel — vanilla JS infinite loop, 3 visible desktop / 1 mobile
+(function () {
+  const GAP = 24;
+  const CLONES = 3; // front and back clone count (equals max visible)
+
+  function initCarousel(el) {
+    const trackWrap = el.querySelector('.svc-track-wrap');
+    const track = el.querySelector('.svc-track');
+    const dotsWrap = el.querySelector('.svc-dots');
+    const prevBtn = el.querySelector('.svc-prev');
+    const nextBtn = el.querySelector('.svc-next');
+
+    const origCards = Array.from(track.querySelectorAll('.svc-card'));
+    const total = origCards.length;
+    let current = 0;
+    let transitioning = false;
+    let autoTimer = null;
+
+    function visible() {
+      return window.innerWidth >= 769 ? 3 : 1;
+    }
+
+    function cardWidth() {
+      return Math.floor((trackWrap.offsetWidth - GAP * (visible() - 1)) / visible());
+    }
+
+    // Prepend clones of last CLONES cards (in order: last-2, last-1, last)
+    const frontClones = origCards.slice(-CLONES).map(c => {
+      const cl = c.cloneNode(true);
+      cl.setAttribute('aria-hidden', 'true');
+      return cl;
+    });
+    frontClones.slice().reverse().forEach(cl => track.prepend(cl));
+
+    // Append clones of first CLONES cards
+    origCards.slice(0, CLONES).forEach(c => {
+      const cl = c.cloneNode(true);
+      cl.setAttribute('aria-hidden', 'true');
+      track.appendChild(cl);
+    });
+
+    const allCards = Array.from(track.querySelectorAll('.svc-card'));
+
+    // Build dots
+    origCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'svc-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.querySelectorAll('.svc-dot'));
+
+    function sizeCards() {
+      const w = cardWidth();
+      allCards.forEach(c => { c.style.width = w + 'px'; c.style.marginRight = GAP + 'px'; });
+    }
+
+    function setPos(animate) {
+      const offset = (current + CLONES) * (cardWidth() + GAP);
+      track.style.transition = animate ? 'transform 0.4s ease' : 'none';
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      const real = ((current % total) + total) % total;
+      dots.forEach((d, i) => d.classList.toggle('active', i === real));
+    }
+
+    function jump() {
+      transitioning = false;
+      if (current < 0) { current = total + current; setPos(false); }
+      else if (current >= total) { current -= total; setPos(false); }
+    }
+
+    function prev() {
+      if (transitioning) return;
+      transitioning = true;
+      current--;
+      setPos(true);
+    }
+
+    function next() {
+      if (transitioning) return;
+      transitioning = true;
+      current++;
+      setPos(true);
+    }
+
+    function goTo(idx) {
+      transitioning = false;
+      current = idx;
+      setPos(true);
+    }
+
+    function startAuto() { autoTimer = setInterval(next, 5000); }
+    function stopAuto() { clearInterval(autoTimer); }
+    function resetAuto() { stopAuto(); startAuto(); }
+
+    track.addEventListener('transitionend', jump);
+    prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+    nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+    el.addEventListener('mouseenter', stopAuto);
+    el.addEventListener('mouseleave', startAuto);
+
+    // Touch / swipe
+    let tx = 0, td = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; td = 0; stopAuto(); }, { passive: true });
+    track.addEventListener('touchmove', e => { td = e.touches[0].clientX - tx; }, { passive: true });
+    track.addEventListener('touchend', () => { if (Math.abs(td) > 40) { td < 0 ? next() : prev(); } startAuto(); });
+
+    // Resize — debounced
+    let rt;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { sizeCards(); setPos(false); }, 150);
+    });
+
+    // Init
+    sizeCards();
+    setPos(false);
+    startAuto();
+  }
+
+  document.querySelectorAll('[data-svc-carousel]').forEach(initCarousel);
+}());

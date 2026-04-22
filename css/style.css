@@ -1635,3 +1635,92 @@ img { max-width: 100%; display: block; }
   .sa-why-item::before { left: 20px; top: 22px; }
   .sa-testimonial { padding: 28px 24px; margin-top: 36px; }
 }
+
+/* ============================================================
+   SERVICES VANILLA CAROUSEL
+   ============================================================ */
+.svc-carousel {
+  position: relative;
+  margin-top: 48px;
+}
+
+.svc-track-wrap { overflow: hidden; }
+
+.svc-track {
+  display: flex;
+  will-change: transform;
+}
+
+.svc-card {
+  flex-shrink: 0;
+  background: #ffffff;
+  border-top: 4px solid #d6ce02;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.svc-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+.svc-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.svc-card p {
+  font-size: 0.9rem;
+  color: #555555;
+  line-height: 1.65;
+}
+
+.svc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.svc-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #034a1c;
+  color: #034a1c;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+.svc-btn:hover { background: #034a1c; color: #ffffff; }
+
+.svc-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 220px;
+  flex-wrap: wrap;
+}
+
+.svc-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #C8C3BC;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.svc-dot.active {
+  background: #d6ce02;
+  transform: scale(1.35);
+}
