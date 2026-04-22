@@ -219,7 +219,7 @@ img { max-width: 100%; display: block; }
   min-height: 85vh;
   display: flex;
   align-items: center;
-  background: #034a1c;
+  background: #121212;
   overflow: hidden;
 }
 
@@ -235,7 +235,7 @@ img { max-width: 100%; display: block; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(3,74,28,0.55) 0%, rgba(3,74,28,0.92) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.9) 100%);
   z-index: 1;
 }
 
@@ -822,10 +822,10 @@ img { max-width: 100%; display: block; }
    FOOTER
    ============================================================ */
 .site-footer {
-  background: #034a1c;
+  background: #121212;
   color: rgba(255,255,255,0.75);
   padding: 64px 0 0;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 3px solid #d6ce02;
 }
 
 .footer-inner {
@@ -1321,7 +1321,7 @@ img { max-width: 100%; display: block; }
    SERVICE AREAS STRIP — above footer on all pages
    ============================================================ */
 .service-areas-strip {
-  background: #022d11;
+  background: #0d0d0d;
   border-top: 1px solid rgba(214,206,2,0.2);
   padding: 28px 0;
   text-align: center;
@@ -1723,4 +1723,32 @@ img { max-width: 100%; display: block; }
 .svc-dot.active {
   background: #d6ce02;
   transform: scale(1.35);
+}
+
+/* ============================================================
+   OFFICE HOURS
+   ============================================================ */
+.hours-table {
+  border-collapse: collapse;
+  margin-top: 2px;
+}
+.hours-table td {
+  padding: 3px 0;
+  font-size: 0.88rem;
+  vertical-align: top;
+}
+.hours-table td:first-child {
+  color: var(--yellow);
+  font-weight: 700;
+  padding-right: 20px;
+  min-width: 72px;
+  white-space: nowrap;
+}
+.hours-table td:last-child { color: rgba(255,255,255,0.8); }
+
+.footer-hours {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  line-height: 1.6;
 }
