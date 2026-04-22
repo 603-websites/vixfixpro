@@ -985,6 +985,15 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
+.about-cta .container {
+  text-align: center;
+}
+
+.about-cta .eyebrow,
+.about-cta .section-title {
+  text-align: center;
+}
+
 .about-cta .section-title { color: var(--white); margin-bottom: 16px; }
 
 .about-cta p {
@@ -994,13 +1003,16 @@ img { max-width: 100%; display: block; }
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .about-cta-btns {
   display: flex;
   gap: 16px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 /* ============================================================
