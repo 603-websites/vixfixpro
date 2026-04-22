@@ -376,6 +376,14 @@ img { max-width: 100%; display: block; }
   margin-bottom: 32px;
 }
 
+.services-grid-9 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+
 .service-card {
   background: var(--white);
   padding: 32px 28px;
@@ -388,6 +396,7 @@ img { max-width: 100%; display: block; }
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border-bottom: 3px solid #f0a500;
 }
 
 .card-icon { margin-bottom: 16px; color: var(--green); }
@@ -1100,6 +1109,11 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 @media (max-width: 1060px) {
   .hero-content { grid-template-columns: 1fr 380px; gap: 40px; }
+  .services-grid-9 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .services-grid-9 { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 960px) {
