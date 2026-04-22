@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css?v=3" />
+  <link rel="stylesheet" href="/css/style.css?v=4" />
 </head>
 <body>
 
@@ -44,7 +44,7 @@
         <li><a href="/about.html">About</a></li>
         <li><a href="/blog.html">Blog</a></li>
         <li><a href="/service-areas.html">Service Areas</a></li>
-        <li><a href="/index.html#contact" class="nav-cta">Free Estimate</a></li>
+        <li><a href="/index.html#contact" class="nav-cta" data-estimate-trigger>Free Estimate</a></li>
       </ul>
     </nav>
   </header>
@@ -117,7 +117,7 @@
       <h2 class="section-title">Professional TV Mounting — <em>Free Estimate</em></h2>
       <p>Clean install, proper stud anchoring, cable management included. VixFix handles TV mounting throughout central and southern NH.</p>
       <div class="article-cta-btns">
-        <a href="/index.html#contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="/index.html#contact" class="btn btn-primary" data-estimate-trigger>Get a Free Estimate</a>
         <a href="tel:6032025309" class="btn btn-ghost">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>603-202-5309
         </a>
@@ -166,6 +166,28 @@
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js?v=4"></script>
+  <!-- ESTIMATE MODAL -->
+  <div id="estimate-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title" aria-hidden="true" hidden>
+    <div class="hero-form-card modal-card">
+      <button type="button" class="modal-close" aria-label="Close estimate form">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="hero-form-header">
+        <p class="hero-form-title" id="estimate-modal-title">Get a Free Estimate</p>
+        <p class="hero-form-sub">No obligation — we'll get back to you fast.</p>
+      </div>
+      <form name="hero-contact" netlify>
+        <div class="form-row">
+          <input type="text" name="first-name" placeholder="First Name" required />
+          <input type="text" name="last-name" placeholder="Last Name" required />
+        </div>
+        <input type="tel" name="phone" placeholder="Phone Number" />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <button type="submit" class="btn btn-primary btn-full">Get My Free Estimate</button>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>

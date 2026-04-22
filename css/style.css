@@ -1000,7 +1000,7 @@ img { max-width: 100%; display: block; }
   color: rgba(255,255,255,0.65);
   font-size: 1rem;
   margin-bottom: 36px;
-  max-width: 480px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -1738,7 +1738,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   ESTIMATE MODAL
+   ESTIMATE MODAL — hero-form-card clone inside a backdrop
    ============================================================ */
 .modal-backdrop {
   position: fixed;
@@ -1754,36 +1754,34 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.2s ease;
 }
 
+.modal-backdrop[hidden] { display: none; }
+
 .modal-backdrop.modal-open {
   opacity: 1;
   pointer-events: auto;
 }
 
-.modal-dialog {
-  background: var(--dark-section);
-  color: var(--white);
-  border-radius: var(--radius);
-  padding: 48px 40px 40px;
+.modal-card {
+  position: relative;
   max-width: 500px;
   width: 100%;
-  position: relative;
-  transform: scale(0.95) translateY(10px);
-  transition: transform 0.2s ease;
   max-height: calc(100vh - 48px);
   overflow-y: auto;
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.2s ease;
 }
 
-.modal-backdrop.modal-open .modal-dialog {
+.modal-backdrop.modal-open .modal-card {
   transform: scale(1) translateY(0);
 }
 
 .modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
   padding: 8px;
   border-radius: var(--radius);
@@ -1792,6 +1790,7 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   transition: color 0.2s, background-color 0.2s;
   line-height: 1;
+  z-index: 1;
 }
 
 .modal-close:hover {
@@ -1799,49 +1798,18 @@ img { max-width: 100%; display: block; }
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.modal-dialog .eyebrow {
-  color: var(--yellow);
-  margin-bottom: 8px;
-}
-
-.modal-dialog .section-title {
-  color: var(--white);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  margin-bottom: 24px;
-}
-
-.modal-success {
-  display: none;
-  text-align: center;
-  padding: 32px 0 16px;
-}
-
-.modal-success.show { display: block; }
-
-.modal-success-check {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--yellow);
-  color: var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-}
-
-.modal-success p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05rem;
-  line-height: 1.65;
-  max-width: 100%;
-  margin-bottom: 0;
-  text-align: center;
-}
+body.modal-lock { overflow: hidden; }
 
 @media (max-width: 540px) {
-  .modal-dialog { padding: 44px 20px 28px; }
+  .modal-backdrop { padding: 16px; }
+  .modal-card { padding: 28px 20px; }
 }
+
+/* ============================================================
+   ABOUT-CTA heading accent — yellow on dark matte bg
+   (overrides the default green .section-title em accent)
+   ============================================================ */
+.about-cta .section-title em { color: var(--yellow); }
 
 /* ============================================================
    CONTACT SECTION — matte black override (homepage only)

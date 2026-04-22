@@ -16,9 +16,10 @@ window.addEventListener('scroll', () => {
   header?.classList.toggle('scrolled', window.scrollY > 80);
 }, { passive: true });
 
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links — skip Free Estimate triggers (modal handles them)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
+    if (anchor.hasAttribute('data-estimate-trigger')) return;
     const target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
       e.preventDefault();
@@ -26,6 +27,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Estimate modal — open/close, focus trap, body scroll lock, Esc to close
+(function () {
+  const modal = document.getElementById('estimate-modal');
+  if (!modal) return;
+
+  const card = modal.querySelector('.modal-card');
+  const closeBtn = modal.querySelector('.modal-close');
+  const focusableSel = 'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
+  let lastTrigger = null;
+
+  function open(trigger) {
+    lastTrigger = trigger || null;
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add('modal-open'));
+    document.body.classList.add('modal-lock');
+    modal.setAttribute('aria-hidden', 'false');
+    const first = modal.querySelector('input, button, [tabindex]');
+    first?.focus();
+  }
+
+  function close() {
+    modal.classList.remove('modal-open');
+    document.body.classList.remove('modal-lock');
+    modal.setAttribute('aria-hidden', 'true');
+    setTimeout(() => { modal.hidden = true; }, 220);
+    lastTrigger?.focus();
+  }
+
+  // Bind every Free Estimate trigger
+  document.querySelectorAll('[data-estimate-trigger]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      open(btn);
+    });
+  });
+
+  closeBtn?.addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (modal.hidden) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Tab') {
+      const focusables = Array.from(card.querySelectorAll(focusableSel)).filter(el => !el.hasAttribute('disabled'));
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // Submit feedback on the modal form
+  const mform = modal.querySelector('form');
+  mform?.addEventListener('submit', () => {
+    const sb = mform.querySelector('button[type="submit"]');
+    if (sb) { sb.textContent = 'Sending...'; sb.disabled = true; }
+  });
+}());
 
 // Basic form submit feedback
 const form = document.querySelector('.contact-form');
