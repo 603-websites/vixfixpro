@@ -128,31 +128,18 @@ img { max-width: 100%; display: block; }
 }
 
 .logo {
-  display: flex;
-  align-items: baseline;
-  gap: 0;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  padding: 6px;
+  border-radius: 4px;
+  line-height: 0;
+  flex-shrink: 0;
 }
-.logo-vix {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.02em;
-}
-.logo-fix {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--green);
-  letter-spacing: -0.02em;
-}
-.logo-sub {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.4);
-  margin-left: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  align-self: center;
+.logo img {
+  max-height: 48px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -722,8 +709,8 @@ img { max-width: 100%; display: block; }
   padding-bottom: 48px;
 }
 
-.footer-brand .logo-vix { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--white); }
-.footer-brand .logo-fix { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--green); }
+.footer-brand .logo { background: #fff; padding: 5px; border-radius: 4px; }
+.footer-brand .logo img { max-height: 40px; }
 .footer-brand p { font-size: 0.88rem; margin-top: 8px; }
 
 .footer-links h4,
@@ -1120,6 +1107,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 700px) {
   .section { padding: 64px 0; }
+  .logo img { max-height: 40px; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--nav-bg); padding: 20px 24px; gap: 16px; border-bottom: var(--border-green); }
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
