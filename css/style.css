@@ -476,27 +476,58 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   PROCESS
+   PROCESS — horizontal timeline
    ============================================================ */
-.process-grid {
+.process-timeline {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 48px;
+  gap: 0;
+  margin-top: 64px;
   position: relative;
+}
+
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 0; right: 0;
+  height: 2px;
+  background: #f0a500;
+  z-index: 0;
 }
 
 .process-step {
-  padding: 36px 28px;
-  border: var(--border-green);
-  border-bottom: 3px solid var(--yellow);
-  background: var(--white);
-  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px 36px;
+  position: relative;
+  z-index: 1;
 }
 
+.step-circle {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #1a1a2e;
+  border: 3px solid #f0a500;
+  color: #f0a500;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-text { flex: 1; }
+
+.process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+.process-step p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+
+/* Legacy .step-num kept for any subpage that might reference it */
 .step-num {
   font-family: var(--font-display);
   font-size: 3.5rem;
@@ -505,8 +536,6 @@ img { max-width: 100%; display: block; }
   line-height: 1;
   margin-bottom: 16px;
 }
-.process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-.process-step p { font-size: 0.88rem; color: var(--mid); flex: 1; }
 
 /* ============================================================
    PROJECTS
@@ -1191,6 +1220,22 @@ img { max-width: 100%; display: block; }
   .contact-form { padding: 28px 20px; }
   .contact-grid { gap: 32px; }
   .projects-grid { margin-top: 24px; }
+
+  /* Process vertical timeline */
+  .process-timeline { grid-template-columns: 1fr; margin-top: 48px; }
+  .process-timeline::before {
+    top: 28px; bottom: 28px;
+    left: 27px; right: auto;
+    width: 2px; height: auto;
+  }
+  .process-step {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+    padding: 0 0 28px 0;
+  }
+  .step-circle { margin-bottom: 0; }
 }
 
 /* ============================================================
