@@ -8,21 +8,23 @@
   --off-white: #F7F7F5;
   --alt-bg: #F0EEE9;
   --dark: #111111;
-  --dark-section: #181818;
+  --dark-section: #1a1a2e;
   --mid: #555555;
   --light-text: #888888;
-  --nav-bg: #0E0E0E;
+  --nav-bg: #1a1a2e;
 
-  --green: #034a1c;
-  --green-hover: #023515;
-  --yellow: #d6ce02;
-  --yellow-hover: #b5ae02;
+  --gold: #f0a500;
+  --gold-hover: #d9940a;
+  --green: #f0a500;
+  --green-hover: #d9940a;
+  --yellow: #f0a500;
+  --yellow-hover: #d9940a;
 
-  --border-green: 1.5px solid #034a1c;
-  --border-yellow: 2px solid #d6ce02;
+  --border-green: 1.5px solid #f0a500;
+  --border-yellow: 2px solid #f0a500;
 
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Barlow Condensed', 'Inter', sans-serif;
+  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
 
   --radius: 4px;
   --shadow: 0 2px 16px rgba(0,0,0,0.08);
@@ -110,11 +112,17 @@ img { max-width: 100%; display: block; }
    HEADER / NAV
    ============================================================ */
 .site-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: sticky;
+  top: 0;
   z-index: 100;
-  background: var(--nav-bg);
-  border-bottom: var(--border-green);
+  background: rgba(26,26,46,0);
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border-bottom: 1.5px solid rgba(240,165,0,0);
+}
+.site-header.scrolled {
+  background: #1a1a2e;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.45);
+  border-bottom-color: rgba(240,165,0,0.35);
 }
 
 .nav-inner {
@@ -184,11 +192,10 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  padding-top: 68px;
-  background: #0E0E0E;
+  background: #1a1a2e;
   overflow: hidden;
 }
 
@@ -196,16 +203,16 @@ img { max-width: 100%; display: block; }
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(3,74,28,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(214,206,2,0.05) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: url('../images/heropicture.jpg') center center / cover no-repeat;
+  filter: grayscale(100%) brightness(0.5);
+  z-index: 0;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(14,14,14,0.4) 100%);
+  background: linear-gradient(to bottom, rgba(26,26,46,0.55) 0%, rgba(26,26,46,0.95) 100%);
+  z-index: 1;
 }
 
 .hero-content {
@@ -271,7 +278,7 @@ img { max-width: 100%; display: block; }
   border: var(--border-green);
   padding: 12px 20px;
   border-radius: var(--radius);
-  background: rgba(3,74,28,0.08);
+  background: rgba(240,165,0,0.1);
   color: var(--white);
   font-weight: 700;
   font-size: 0.95rem;
@@ -279,7 +286,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s;
   align-self: flex-start;
 }
-.hero-phone-btn:hover { background: rgba(3,74,28,0.18); }
+.hero-phone-btn:hover { background: rgba(240,165,0,0.2); }
 .hero-phone-btn svg { color: var(--green); flex-shrink: 0; }
 
 /* Hero button row — phone + Free Estimate side by side */
@@ -485,7 +492,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 800;
-  color: rgba(3,74,28,0.12);
+  color: rgba(240,165,0,0.15);
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -785,7 +792,7 @@ img { max-width: 100%; display: block; }
   position: relative;
   background: var(--dark-section);
   color: var(--white);
-  padding: 140px 0 96px;
+  padding: 80px 0 96px;
   overflow: hidden;
 }
 
@@ -1024,7 +1031,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    PROJECTS PAGE
    ============================================================ */
-.projects-banner { background: var(--dark-section); color: var(--white); padding: 140px 0 80px; position: relative; overflow: hidden; }
+.projects-banner { background: var(--dark-section); color: var(--white); padding: 80px 0 80px; position: relative; overflow: hidden; }
 .projects-banner::before {
   content: '';
   position: absolute;
@@ -1043,7 +1050,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    REVIEWS PAGE
    ============================================================ */
-.reviews-banner { background: var(--dark-section); color: var(--white); padding: 140px 0 80px; position: relative; overflow: hidden; }
+.reviews-banner { background: var(--dark-section); color: var(--white); padding: 80px 0 80px; position: relative; overflow: hidden; }
 .reviews-banner::before {
   content: '';
   position: absolute;
@@ -1107,6 +1114,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 700px) {
   .section { padding: 64px 0; }
+  .hero { min-height: 70vh; }
   .logo img { max-height: 40px; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--nav-bg); padding: 20px 24px; gap: 16px; border-bottom: var(--border-green); }
   .nav-links.open { display: flex; }
@@ -1135,7 +1143,7 @@ img { max-width: 100%; display: block; }
   position: relative;
   background: var(--dark-section);
   color: var(--white);
-  padding: 140px 0 96px;
+  padding: 80px 0 96px;
   overflow: hidden;
 }
 .page-banner::before {
@@ -1357,7 +1365,7 @@ img { max-width: 100%; display: block; }
 .article-hero {
   background: var(--dark-section);
   color: var(--white);
-  padding: 140px 0 80px;
+  padding: 80px 0 80px;
   position: relative;
   overflow: hidden;
 }
