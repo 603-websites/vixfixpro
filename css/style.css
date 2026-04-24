@@ -1779,6 +1779,31 @@ img { max-width: 100%; display: block; }
   transform: scale(1.35);
 }
 
+@media (max-width: 768px) {
+  .svc-track-wrap {
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+
+  .svc-carousel-mobile .svc-track-wrap:active {
+    cursor: grabbing;
+  }
+
+  .svc-controls {
+    gap: 0;
+    margin-top: 16px;
+  }
+
+  .svc-btn {
+    display: none;
+  }
+
+  .svc-dots {
+    max-width: none;
+  }
+}
+
 /* ============================================================
    SHARED CAROUSEL EASING — smooth cubic-bezier for slide swipers
    (brands marquee is linear, set separately below)
@@ -1800,8 +1825,7 @@ img { max-width: 100%; display: block; }
   .city-swiper .swiper-wrapper,
   .sa-why-swiper .swiper-wrapper,
   .reviews-swiper .swiper-wrapper,
-  .projects-cat-swiper .swiper-wrapper,
-  .brands-swiper .swiper-wrapper {
+  .projects-cat-swiper .swiper-wrapper {
     transition: none !important;
   }
 }
@@ -1866,41 +1890,105 @@ img { max-width: 100%; display: block; }
 }
 .brands-section .section-title {
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
-.brands-swiper {
-  overflow: hidden !important;
-  max-width: 100%;
+.brands-marquee {
+  --brands-loop-distance: 0px;
+  --brands-loop-duration: 22s;
+  position: relative;
+  overflow: hidden;
+  max-width: min(1120px, 100%);
   margin: 0 auto;
+  padding: 16px 0 6px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
 }
-.brands-swiper .swiper-wrapper {
+.brands-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.brands-set {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  transition-timing-function: linear !important;
+  gap: 18px;
+  flex: 0 0 auto;
+  padding-inline: 9px;
 }
-.brands-swiper .swiper-slide {
+.brands-marquee.is-ready .brands-track {
+  animation: brands-marquee-scroll var(--brands-loop-duration) linear infinite;
+}
+.brands-marquee:hover .brands-track,
+.brands-marquee:focus-within .brands-track,
+.brands-marquee.is-paused .brands-track {
+  animation-play-state: paused;
+}
+.brand-pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: 60px;
+  min-width: clamp(140px, 16vw, 188px);
+  height: clamp(64px, 7vw, 82px);
+  padding: 10px 16px;
 }
 .brand-logo {
-  height: 52px;
+  height: 44px;
   width: auto;
-  max-width: 180px;
+  max-width: min(140px, 100%);
   object-fit: contain;
   display: block;
+}
+.brand-logo-sherwin {
+  height: 50px;
+  max-width: min(160px, 100%);
+}
+.brand-logo-behr {
+  height: 48px;
+  max-width: min(152px, 100%);
 }
 
 @media (max-width: 768px) {
   .brands-section { padding: 56px 0; }
-  .brands-swiper .swiper-slide { height: 48px; }
-  .brand-logo { height: 40px; max-width: 130px; }
+  .brands-section .section-title { margin-bottom: 14px; }
+  .brands-marquee {
+    padding: 12px 0 2px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 3%, black 97%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 3%, black 97%, transparent 100%);
+  }
+  .brands-set { gap: 12px; padding-inline: 6px; }
+  .brand-pill {
+    min-width: 124px;
+    height: 58px;
+    padding: 8px 10px;
+  }
+  .brand-logo { height: 34px; max-width: 112px; }
+  .brand-logo-sherwin { height: 40px; max-width: 126px; }
+  .brand-logo-behr { height: 38px; max-width: 120px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brands-swiper .swiper-wrapper { transition: none !important; }
+  .brands-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .brands-track {
+    width: auto;
+  }
+  .brands-marquee .brands-set.is-clone {
+    display: none;
+  }
+  .brands-marquee .brands-track,
+  .brands-marquee.is-ready .brands-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes brands-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(var(--brands-loop-distance) * -1), 0, 0); }
 }
 
 /* ============================================================

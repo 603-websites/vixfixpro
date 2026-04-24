@@ -212,29 +212,72 @@ document.querySelectorAll('.projects-cat-swiper').forEach(el => {
   });
 });
 
-// Brands marquee — continuous linear scroll, pause on hover/touch, respects reduced motion.
-document.querySelectorAll('.brands-swiper').forEach(el => {
-  new Swiper(el, {
-    slidesPerView: 'auto',
-    spaceBetween: 56,
-    loop: true,
-    centeredSlides: true,
-    allowTouchMove: true,
-    speed: 3200,
-    grabCursor: false,
-    a11y: { enabled: true },
-    autoplay: prefersReducedMotion ? false : {
-      delay: 0,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true
-    },
-    breakpoints: {
-      769: {
-        spaceBetween: 72
-      }
+// Brands marquee — duplicated track for a true seamless loop with static fallback.
+(function () {
+  const selectors = '[data-brands-marquee]';
+
+  function buildMarquee(root) {
+    const track = root.querySelector('.brands-track');
+    const originalSet = root.querySelector('.brands-set');
+    if (!track || !originalSet) return;
+
+    track.querySelectorAll('.brands-set.is-clone').forEach(node => node.remove());
+    root.classList.remove('is-ready');
+
+    const clone = originalSet.cloneNode(true);
+    clone.classList.add('is-clone');
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+
+    const updateMetrics = () => {
+      const distance = Math.ceil(originalSet.getBoundingClientRect().width);
+      if (!distance) return;
+      root.style.setProperty('--brands-loop-distance', `${distance}px`);
+      const pixelsPerSecond = window.innerWidth <= 768 ? 68 : 82;
+      const duration = Math.max(distance / pixelsPerSecond, 16);
+      root.style.setProperty('--brands-loop-duration', `${duration}s`);
+      root.classList.add('is-ready');
+    };
+
+    const logoImages = Array.from(originalSet.querySelectorAll('img'));
+    let pending = logoImages.filter(img => !img.complete).length;
+
+    if (pending === 0) {
+      updateMetrics();
+    } else {
+      const onAssetReady = () => {
+        pending -= 1;
+        if (pending <= 0) updateMetrics();
+      };
+      logoImages.forEach(img => {
+        if (img.complete) return;
+        img.addEventListener('load', onAssetReady, { once: true });
+        img.addEventListener('error', onAssetReady, { once: true });
+      });
     }
-  });
-});
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(updateMetrics);
+      observer.observe(originalSet);
+    } else {
+      window.addEventListener('resize', updateMetrics, { passive: true });
+    }
+
+    root.addEventListener('pointerdown', () => root.classList.add('is-paused'));
+    root.addEventListener('pointerup', () => root.classList.remove('is-paused'));
+    root.addEventListener('pointercancel', () => root.classList.remove('is-paused'));
+    root.addEventListener('focusin', () => root.classList.add('is-paused'));
+    root.addEventListener('focusout', () => root.classList.remove('is-paused'));
+  }
+
+  const init = () => document.querySelectorAll(selectors).forEach(buildMarquee);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+}());
 
 // Services carousel — vanilla JS infinite loop, 3 visible desktop / 1 mobile
 (function () {
@@ -253,13 +296,24 @@ document.querySelectorAll('.brands-swiper').forEach(el => {
     let current = 0;
     let transitioning = false;
     let autoTimer = null;
+    let dragging = false;
+    let dragStartX = 0;
+    let dragDeltaX = 0;
 
     function visible() {
       return window.innerWidth >= 769 ? 3 : 1;
     }
 
+    function isMobile() {
+      return window.innerWidth < 769;
+    }
+
     function cardWidth() {
       return Math.floor((trackWrap.offsetWidth - GAP * (visible() - 1)) / visible());
+    }
+
+    function baseOffset() {
+      return (current + CLONES) * (cardWidth() + GAP);
     }
 
     // Prepend clones of last CLONES cards (in order: last-2, last-1, last)
@@ -296,8 +350,8 @@ document.querySelectorAll('.brands-swiper').forEach(el => {
     }
 
     function setPos(animate) {
-      const offset = (current + CLONES) * (cardWidth() + GAP);
-      track.style.transition = animate ? 'transform 0.4s ease' : 'none';
+      const offset = baseOffset();
+      track.style.transition = animate ? 'transform 0.46s cubic-bezier(0.22, 0.61, 0.36, 1)' : 'none';
       track.style.transform = 'translateX(-' + offset + 'px)';
       const real = ((current % total) + total) % total;
       dots.forEach((d, i) => d.classList.toggle('active', i === real));
@@ -329,30 +383,76 @@ document.querySelectorAll('.brands-swiper').forEach(el => {
       setPos(true);
     }
 
-    function startAuto() { autoTimer = setInterval(next, 5000); }
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(next, 5000);
+    }
     function stopAuto() { clearInterval(autoTimer); }
     function resetAuto() { stopAuto(); startAuto(); }
+    function syncControls() {
+      const mobile = isMobile();
+      if (prevBtn) prevBtn.hidden = mobile;
+      if (nextBtn) nextBtn.hidden = mobile;
+      el.classList.toggle('svc-carousel-mobile', mobile);
+    }
 
     track.addEventListener('transitionend', jump);
-    prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
-    nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+    prevBtn?.addEventListener('click', () => { prev(); resetAuto(); });
+    nextBtn?.addEventListener('click', () => { next(); resetAuto(); });
     el.addEventListener('mouseenter', stopAuto);
     el.addEventListener('mouseleave', startAuto);
 
-    // Touch / swipe
-    let tx = 0, td = 0;
-    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; td = 0; stopAuto(); }, { passive: true });
-    track.addEventListener('touchmove', e => { td = e.touches[0].clientX - tx; }, { passive: true });
-    track.addEventListener('touchend', () => { if (Math.abs(td) > 40) { td < 0 ? next() : prev(); } startAuto(); });
+    // Touch / swipe — mobile only. Drag the track with the finger, then snap.
+    trackWrap.addEventListener('touchstart', e => {
+      if (!isMobile() || transitioning) return;
+      dragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragDeltaX = 0;
+      stopAuto();
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    trackWrap.addEventListener('touchmove', e => {
+      if (!dragging || !isMobile()) return;
+      dragDeltaX = e.touches[0].clientX - dragStartX;
+      const offset = Math.max(Math.min(dragDeltaX, 84), -84);
+      track.style.transform = 'translateX(' + (-baseOffset() + offset) + 'px)';
+    }, { passive: true });
+
+    trackWrap.addEventListener('touchend', () => {
+      if (!dragging) return;
+      dragging = false;
+      const threshold = Math.min(72, cardWidth() * 0.18);
+      if (Math.abs(dragDeltaX) > threshold) {
+        dragDeltaX < 0 ? next() : prev();
+      } else {
+        setPos(true);
+      }
+      dragDeltaX = 0;
+      startAuto();
+    });
+
+    trackWrap.addEventListener('touchcancel', () => {
+      if (!dragging) return;
+      dragging = false;
+      dragDeltaX = 0;
+      setPos(true);
+      startAuto();
+    });
 
     // Resize — debounced
     let rt;
     window.addEventListener('resize', () => {
       clearTimeout(rt);
-      rt = setTimeout(() => { sizeCards(); setPos(false); }, 150);
+      rt = setTimeout(() => {
+        syncControls();
+        sizeCards();
+        setPos(false);
+      }, 150);
     });
 
     // Init
+    syncControls();
     sizeCards();
     setPos(false);
     startAuto();
