@@ -1780,6 +1780,210 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   PROJECTS CATEGORY CAROUSEL (per-category Swiper on projects.html)
+   Reuses .project-card / .project-img / .before-after-wrap untouched —
+   only wraps them in Swiper slides and adds nav + dots.
+   ============================================================ */
+.projects-cat-carousel {
+  position: relative;
+  margin-top: 48px;
+  padding: 0 56px; /* desktop: room for arrow buttons outside the track */
+}
+
+.projects-cat-swiper { padding-bottom: 44px !important; overflow: hidden !important; }
+.projects-cat-swiper .swiper-slide { height: auto; display: flex; }
+.projects-cat-swiper .swiper-slide .project-card { width: 100%; display: flex; flex-direction: column; }
+
+.projects-cat-nav {
+  position: absolute;
+  top: calc(50% - 22px);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: var(--border-green);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  z-index: 5;
+  padding: 0;
+}
+.projects-cat-nav:hover { background: var(--green); color: var(--white); transform: translateY(-50%) scale(1.05); }
+.projects-cat-nav:disabled { opacity: 0.35; cursor: default; transform: translateY(-50%); }
+.projects-cat-prev { left: 0; }
+.projects-cat-next { right: 0; }
+
+.projects-cat-swiper .swiper-pagination-bullet { background: #C8C3BC; opacity: 1; width: 8px; height: 8px; }
+.projects-cat-swiper .swiper-pagination-bullet-active { background: var(--yellow); opacity: 1; }
+
+@media (max-width: 768px) {
+  .projects-cat-carousel { padding: 0; margin-top: 32px; }
+  .projects-cat-nav { display: none; }
+  .projects-cat-swiper { padding-bottom: 36px !important; }
+}
+
+/* ============================================================
+   BRANDS STRIP (homepage) — auto-scrolling logo marquee
+   ============================================================ */
+.brands-section {
+  padding: 72px 0;
+  background: var(--off-white);
+  text-align: center;
+  border-top: 1px solid rgba(3,74,28,0.08);
+  border-bottom: 1px solid rgba(3,74,28,0.08);
+}
+.brands-section .section-title {
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  margin-bottom: 36px;
+}
+.brands-swiper { overflow: hidden !important; }
+.brands-swiper .swiper-wrapper {
+  align-items: center;
+  transition-timing-function: linear !important;
+}
+.brands-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+.brand-logo {
+  height: 52px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.brand-logo:hover,
+.brands-swiper:hover .brand-logo:hover { filter: grayscale(0%); opacity: 1; }
+
+@media (max-width: 768px) {
+  .brands-section { padding: 56px 0; }
+  .brand-logo { height: 40px; max-width: 130px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-swiper .swiper-wrapper { transition: none !important; }
+}
+
+/* ============================================================
+   FAQ PAGE — grouped accordion
+   ============================================================ */
+.faq-page-section { padding: 80px 0; }
+.faq-page-section:nth-child(even) { background: var(--alt-bg); }
+
+.faq-group-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--yellow);
+  display: inline-block;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+
+.faq-accordion {
+  background: var(--white);
+  border: 1px solid rgba(3,74,28,0.12);
+  border-left: 3px solid var(--yellow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.faq-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 28px;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.15s;
+}
+.faq-accordion summary::-webkit-details-marker { display: none; }
+.faq-accordion summary:hover { background: var(--off-white); }
+.faq-accordion summary::after {
+  content: '+';
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--green);
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-accordion[open] summary::after { content: '−'; }
+.faq-accordion[open] summary { background: var(--off-white); }
+
+.faq-accordion-body {
+  padding: 4px 28px 24px;
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.faq-accordion-body a { color: var(--green); font-weight: 600; text-decoration: underline; }
+
+.home-faq-link {
+  text-align: center;
+  margin-top: 32px;
+}
+.home-faq-link a {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 3px;
+  transition: color 0.2s;
+}
+.home-faq-link a:hover { color: var(--green-hover); }
+
+@media (max-width: 700px) {
+  .faq-page-section { padding: 56px 0; }
+  .faq-accordion summary { padding: 18px 20px; font-size: 0.96rem; }
+  .faq-accordion-body { padding: 2px 20px 20px; }
+}
+
+/* ============================================================
+   FOOTER — mobile reorder + builder credit
+   ============================================================ */
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+@media (max-width: 960px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; order: 1; }
+  .footer-contact { order: 2; }
+  .footer-links { order: 3; }
+}
+@media (max-width: 700px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-brand { order: 1; }
+  .footer-contact { order: 2; }
+  .footer-links { order: 3; }
+}
+
+/* ============================================================
    ESTIMATE MODAL — hero-form-card clone inside a backdrop
    ============================================================ */
 .modal-backdrop {

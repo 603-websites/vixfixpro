@@ -22,7 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css?v=8" />
 </head>
 <body>
 
@@ -40,6 +41,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="faq.html">FAQs</a></li>
         <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -64,25 +66,116 @@
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Painting</h2>
       <p class="section-sub">Interior and exterior painting with clean lines and lasting finishes.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img project-img-1">
-            <img src="images/interior-repaint.jpg" alt="Interior repaint with clean trim work and bright finish" loading="lazy" />
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img project-img-1">
+                  <img src="images/interior-repaint.jpg" alt="Interior repaint with clean trim work and bright finish in New Hampshire home" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Interior Repaint</h4>
+                  <p>Full interior repaint with trim work — clean, bright finish throughout.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/indoor-painting-hardwood.webp" alt="Interior painting project over hardwood floors" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Living Room Refresh</h4>
+                  <p>Fresh coat throughout the main living area — walls, trim, and accent details done right.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-painting-nh-02.webp" alt="Interior painting project in New Hampshire home" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Interior Painting</h4>
+                  <p>Smooth, even coverage with sharp cut-ins — professional finish that holds up over time.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-paint-prep-nh-03.jpg" alt="Paint preparation work — patching and priming walls before painting" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Paint Prep Work</h4>
+                  <p>Proper prep is everything — patching, sanding, and priming so the finish coat lasts for years.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-painting-project-nh-04.jpg" alt="Interior painting project in progress" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Interior Painting Project</h4>
+                  <p>Careful masking and clean lines around trim, ceilings, and fixtures — no touch-ups needed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-painting-hardwood-nh-05.jpg" alt="Interior paint with protected hardwood floors below" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Paint Over Hardwood</h4>
+                  <p>Full interior repaint with floors fully protected — clean work, spotless turnover.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-drywall-repair-nh-06.jpg" alt="Drywall repair and patching before paint" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Drywall Repair &amp; Paint</h4>
+                  <p>Damaged drywall patched, skim-coated smooth, and repainted — looks like it was never there.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/interior-painting-refresh-nh-07.jpg" alt="Freshly painted interior with modern finish" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Whole-Room Refresh</h4>
+                  <p>Walls, trim, and ceiling refreshed top-to-bottom — a full transformation in a single visit.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Interior Repaint</h4>
-            <p>Full interior repaint with trim work — clean, bright finish throughout.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="images/indoor-painting-hardwood.webp" alt="Interior painting over hardwood floors" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h4>Living Room Refresh</h4>
-            <p>Fresh coat throughout the main living area — walls, trim, and accent details done right.</p>
-          </div>
-        </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous painting project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next painting project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -92,17 +185,95 @@
     <div class="container">
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Flooring</h2>
-      <p class="section-sub">Hardwood, laminate, tile, and vinyl — installed with precision.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img project-img-3">
-            <img src="images/hardwood-floor.jpg" alt="New hardwood flooring installed in main living area" loading="lazy" />
+      <p class="section-sub">Hardwood, laminate, tile, vinyl, and staircase refinishing — installed with precision.</p>
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img project-img-3">
+                  <img src="images/hardwood-floor.jpg" alt="New hardwood flooring installed in New Hampshire home living area" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Hardwood Floor Install</h4>
+                  <p>New hardwood flooring installed throughout main living area — smooth, level, and built to last.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/hardwood-floor-install-nh-02.jpg" alt="New hardwood flooring installation in progress" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>New Hardwood Flooring</h4>
+                  <p>Tight seams, consistent spacing, and perfectly level planks — the foundation of a great floor.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/staircase-refinish-before-nh-01.jpg" alt="Worn staircase before refinishing" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/staircase-refinish-final-nh-01.jpg" alt="Refinished staircase with smooth stained treads" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Staircase Refinishing</h4>
+                  <p>Worn treads sanded, stained, and sealed — restored to showroom condition without replacing the staircase.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/staircase-refinish-mid-nh-01.jpg" alt="Staircase refinishing mid-project — sanded and ready for stain" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Staircase Sanding</h4>
+                  <p>Decades of wear sanded off — clean substrate ready for fresh stain and a durable topcoat.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/interior-staircase-before-nh-02.jpg" alt="Interior staircase before refinishing" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/interior-staircase-after-nh-02.jpg" alt="Interior staircase after refinishing with fresh paint and stain" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Interior Staircase Restoration</h4>
+                  <p>Full refinish — treads restained, risers repainted, rails cleaned up. Complete transformation.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Hardwood Floor Install</h4>
-            <p>New hardwood flooring installed throughout main living area — smooth, level, and built to last.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous flooring project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next flooring project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -113,23 +284,125 @@
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Water Damage Restoration</h2>
       <p class="section-sub">Fast response — assess, repair, restore. You'd never know it happened.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="before-after-wrap">
-            <div class="before-after-img">
-              <img src="images/water-damage-before.webp" alt="Ceiling before water damage repair" loading="lazy" />
-              <span class="ba-label">Before</span>
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/water-damage-before.webp" alt="Ceiling before water damage repair" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/water-damage-after.webp" alt="Ceiling after water damage repair" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Ceiling Water Damage Repair</h4>
+                  <p>Drywall replacement and full repaint after ceiling water intrusion — completed in one visit.</p>
+                </div>
+              </div>
             </div>
-            <div class="before-after-img">
-              <img src="images/water-damage-after.webp" alt="Ceiling after water damage repair" loading="lazy" />
-              <span class="ba-label ba-label-after">After</span>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/water-damage-ceiling-before-nh-02.jpg" alt="Water-stained ceiling before repair" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/water-damage-ceiling-after-nh-02.jpg" alt="Ceiling after drywall repair and repaint" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Ceiling Drywall Replacement</h4>
+                  <p>Damaged section cut out, framing checked, new drywall hung, taped, mudded, primed, and painted.</p>
+                </div>
+              </div>
             </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/water-damage-bathroom-before-nh-03.jpg" alt="Bathroom wall with water damage before repair" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/water-damage-bathroom-after-nh-03.jpg" alt="Bathroom wall after water damage restoration" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Bathroom Water Damage</h4>
+                  <p>Moisture-damaged bathroom walls removed, treated for mold, and fully restored with a clean finish.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/water-damage-before-nh-04.jpg" alt="Wall and ceiling water damage assessment" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Water Damage Assessment</h4>
+                  <p>First step in every restoration — identify the source, dry it out, then rebuild only what's needed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/water-damage-paint-repair-after-nh-07.jpg" alt="Interior restored after water damage with fresh paint" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Paint Restoration After Water Damage</h4>
+                  <p>Walls repaired and repainted end-to-end — no patchwork, no visible seams, no reminder of the damage.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/water-damage-hardwood-repair-after-nh-08.jpg" alt="Hardwood floor and interior paint restored after water damage" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Hardwood &amp; Paint Restoration</h4>
+                  <p>Full restoration — hardwood refinished, walls repaired, paint refreshed. Back to better than before.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/water-damage-repair-nh-06.jpg" alt="Water damage repair project in progress" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Active Water Damage Repair</h4>
+                  <p>Fast-response repair — protecting structure, preventing mold, and restoring the space quickly.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Ceiling Water Damage Repair</h4>
-            <p>Drywall replacement and full repaint after ceiling water intrusion — completed in one visit.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous water damage project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next water damage project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -140,23 +413,101 @@
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Furniture Restoration</h2>
       <p class="section-sub">Worn furniture brought back to life — refinished and restored like new.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="before-after-wrap">
-            <div class="before-after-img">
-              <img src="images/furniture-before.webp" alt="Sofa before restoration" loading="lazy" />
-              <span class="ba-label">Before</span>
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/furniture-before.webp" alt="Sofa before restoration" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/furniture-after.webp" alt="Sofa after reupholstery" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Sofa Restoration</h4>
+                  <p>Reupholstery and wood frame repair — a completely renewed piece at a fraction of replacement cost.</p>
+                </div>
+              </div>
             </div>
-            <div class="before-after-img">
-              <img src="images/furniture-after.webp" alt="Sofa after reupholstery" loading="lazy" />
-              <span class="ba-label ba-label-after">After</span>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/furniture-glass-table-before-nh-02.jpg" alt="Damaged glass table before repair" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/furniture-glass-table-after-nh-02.jpg" alt="Glass table restored to original condition" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Glass Table Repair</h4>
+                  <p>Custom-cut replacement glass, refinished frame — an heirloom piece back in daily use.</p>
+                </div>
+              </div>
             </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/furniture-railing-before-nh-03.jpg" alt="Worn wooden railing before restoration" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/furniture-railing-after-nh-03.jpg" alt="Wooden railing restored with fresh finish" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Wooden Railing Restoration</h4>
+                  <p>Stripped, sanded, stained, and sealed — original craftsmanship preserved, finish renewed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/furniture-restoration-process-nh-04.gif" alt="Furniture restoration process in action" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Restoration Process</h4>
+                  <p>Hands-on craftsmanship at every step — from strip-down to final finish.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/furniture-cabin-rework-nh-05.jpg" alt="Cabin furniture rework and TV mounting project" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Cabin Rework</h4>
+                  <p>Built-in furniture reworked and wall-mounted TV cleanly installed — a full-room update.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Sofa Restoration</h4>
-            <p>Reupholstery and wood frame repair — a completely renewed piece at a fraction of replacement cost.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous furniture project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next furniture project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -166,26 +517,64 @@
     <div class="container">
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Exterior Work</h2>
-      <p class="section-sub">Siding, decks, exterior painting, and repairs built to stand up to New England weather.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img">
-            <img src="images/exterriorproject.jpg" alt="Exterior siding and painting project" loading="lazy" />
+      <p class="section-sub">Siding, decks, cement, exterior painting, and repairs built to stand up to New England weather.</p>
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/exterriorproject.jpg" alt="Exterior siding and painting project in New Hampshire" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Exterior Siding &amp; Paint</h4>
+                  <p>Full exterior repaint with siding touch-ups — sealed and ready for another New England winter.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/exterriorproject2.jpg" alt="Exterior repair project" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Exterior Repair</h4>
+                  <p>Deck and trim repairs followed by a fresh coat of exterior paint — lasting protection from the elements.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="before-after-wrap">
+                  <div class="before-after-img">
+                    <img src="images/exterior-cement-pour-before-nh-03.jpg" alt="Exterior area prepared for cement pour" loading="lazy" />
+                    <span class="ba-label">Before</span>
+                  </div>
+                  <div class="before-after-img">
+                    <img src="images/exterior-cement-pour-after-nh-03.jpg" alt="Finished cement work after pour" loading="lazy" />
+                    <span class="ba-label ba-label-after">After</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h4>Cement Pour</h4>
+                  <p>Forms set, reinforced, and poured — a smooth, level surface ready for years of use.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Exterior Siding &amp; Paint</h4>
-            <p>Full exterior repaint with siding touch-ups — sealed and ready for another New England winter.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="images/exterriorproject2.jpg" alt="Exterior repair project" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h4>Exterior Repair</h4>
-            <p>Deck and trim repairs followed by a fresh coat of exterior paint — lasting protection from the elements.</p>
-          </div>
-        </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous exterior project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next exterior project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -196,16 +585,44 @@
       <p class="eyebrow">Category</p>
       <h2 class="section-title">Electrical Work</h2>
       <p class="section-sub">Safe, code-compliant electrical repairs and upgrades — no shortcuts.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img">
-            <img src="images/electrical1.jpg" alt="Electrical repair and outlet upgrade" loading="lazy" />
+
+      <div class="projects-cat-carousel">
+        <div class="swiper projects-cat-swiper" data-autoplay-delay="4000">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/electrical1.jpg" alt="Electrical repair and outlet upgrade project" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>Electrical Repair &amp; Upgrade</h4>
+                  <p>Outlet replacements and wiring repairs completed safely and up to code — clean install, no mess left behind.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card">
+                <div class="project-img">
+                  <img src="images/tv-mount-installation-nh-02.jpg" alt="TV mount installation with hidden wiring" loading="lazy" />
+                </div>
+                <div class="project-info">
+                  <h4>TV Mount &amp; Wiring</h4>
+                  <p>Flush-mount TV installation with cables routed cleanly inside the wall — no dangling wires.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="project-info">
-            <h4>Electrical Repair &amp; Upgrade</h4>
-            <p>Outlet replacements and wiring repairs completed safely and up to code — clean install, no mess left behind.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
+        <button class="projects-cat-nav projects-cat-prev" aria-label="Previous electrical project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="projects-cat-nav projects-cat-next" aria-label="Next electrical project">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -240,18 +657,6 @@
         <p>Professional Services LLC</p>
         <p>Serving New Hampshire &amp; Massachusetts with quality craftsmanship.</p>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="service-areas.html">Service Areas</a></li>
-        </ul>
-      </div>
       <div class="footer-contact">
         <h4>Contact</h4>
         <p><a href="tel:6032025309">603-202-5309</a></p>
@@ -260,9 +665,23 @@
         <p class="footer-hours">Mon–Fri: 9 AM – 5 PM &nbsp;·&nbsp; Sat–Sun: Closed</p>
         <div class="footer-social"><a href="https://www.facebook.com/p/VixFix-Professional-Services-LLC-61570549505960/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></div>
       </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 VixFix Professional Services LLC. All rights reserved.</p>
+      <p class="footer-credit">Created by Website Builders</p>
     </div>
   </footer>
 
@@ -273,7 +692,8 @@
     <img class="lightbox-img" src="" alt="" />
   </div>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/main.js?v=8"></script>
   <!-- ESTIMATE MODAL -->
   <div id="estimate-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title" aria-hidden="true" hidden>
     <div class="hero-form-card modal-card">

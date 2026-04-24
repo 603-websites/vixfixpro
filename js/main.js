@@ -120,9 +120,11 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-document.querySelectorAll('.project-img img, .before-after-img img').forEach(img => {
-  img.style.cursor = 'zoom-in';
-  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+// Event-delegated so Swiper loop clones also trigger lightbox
+document.addEventListener('click', e => {
+  const img = e.target.closest('.project-img img, .before-after-img img');
+  if (!img) return;
+  openLightbox(img.src, img.alt);
 });
 
 lightbox?.addEventListener('click', e => {
@@ -135,20 +137,100 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
 });
 
+// Shared mobile carousel behavior helpers
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Mobile-only Swipers — Testimonials, FAQ, Blog, Cities, Why Choose, Reviews
-// Disabled at ≥769px so desktop grid CSS takes over
+// Disabled at ≥769px so desktop grid CSS takes over.
+// Smooth mobile UX: autoplay w/ pause-on-touch, loop, momentum swipe, tap vs swipe threshold.
 document.querySelectorAll('.testimonials-swiper, .faq-swiper, .blog-card-swiper, .city-swiper, .sa-why-swiper, .reviews-swiper').forEach(el => {
+  const isFaq = el.classList.contains('faq-swiper');
+  const delay = isFaq ? 6000 : 5000; // FAQ needs reading time
   new Swiper(el, {
     slidesPerView: 1,
     spaceBetween: 16,
-    loop: false,
+    loop: true,
     grabCursor: true,
+    speed: 450,
+    threshold: 8, // tap-vs-swipe: ignore drags under 8px
+    touchStartPreventDefault: false,
+    resistance: true,
+    resistanceRatio: 0.65,
+    autoplay: prefersReducedMotion ? false : {
+      delay,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false
+    },
     pagination: {
       el: el.querySelector('.swiper-pagination'),
       clickable: true
     },
+    a11y: { enabled: true },
+    keyboard: { enabled: true, onlyInViewport: true },
     breakpoints: {
-      769: { enabled: false }
+      769: { enabled: false, autoplay: false }
+    }
+  });
+});
+
+// Projects-page category carousels — active on ALL screen sizes.
+// Desktop: 2 slides visible, arrow nav, no autoplay. Mobile: 1 slide, no arrows, autoplay 4s.
+document.querySelectorAll('.projects-cat-swiper').forEach(el => {
+  const wrap = el.closest('.projects-cat-carousel');
+  const delay = parseInt(el.dataset.autoplayDelay, 10) || 4000;
+  new Swiper(el, {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+    speed: 450,
+    threshold: 8,
+    resistance: true,
+    resistanceRatio: 0.65,
+    autoplay: prefersReducedMotion ? false : {
+      delay,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true
+    },
+    navigation: wrap ? {
+      prevEl: wrap.querySelector('.projects-cat-prev'),
+      nextEl: wrap.querySelector('.projects-cat-next')
+    } : false,
+    a11y: { enabled: true },
+    keyboard: { enabled: true, onlyInViewport: true },
+    breakpoints: {
+      769: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+        autoplay: false
+      }
+    }
+  });
+});
+
+// Brands marquee — continuous linear scroll, pause on hover/touch, respects reduced motion.
+document.querySelectorAll('.brands-swiper').forEach(el => {
+  new Swiper(el, {
+    slidesPerView: 'auto',
+    spaceBetween: 56,
+    loop: true,
+    allowTouchMove: true,
+    speed: 5000,
+    grabCursor: false,
+    a11y: { enabled: true },
+    autoplay: prefersReducedMotion ? false : {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    breakpoints: {
+      769: {
+        spaceBetween: 72
+      }
     }
   });
 });
