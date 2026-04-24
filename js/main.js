@@ -218,8 +218,9 @@ document.querySelectorAll('.brands-swiper').forEach(el => {
     slidesPerView: 'auto',
     spaceBetween: 56,
     loop: true,
+    centeredSlides: true,
     allowTouchMove: true,
-    speed: 5000,
+    speed: 3200,
     grabCursor: false,
     a11y: { enabled: true },
     autoplay: prefersReducedMotion ? false : {

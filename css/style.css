@@ -1868,9 +1868,14 @@ img { max-width: 100%; display: block; }
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   margin-bottom: 36px;
 }
-.brands-swiper { overflow: hidden !important; }
+.brands-swiper {
+  overflow: hidden !important;
+  max-width: 100%;
+  margin: 0 auto;
+}
 .brands-swiper .swiper-wrapper {
   align-items: center;
+  justify-content: center;
   transition-timing-function: linear !important;
 }
 .brands-swiper .swiper-slide {
@@ -1878,21 +1883,19 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   width: auto;
+  height: 60px;
 }
 .brand-logo {
   height: 52px;
   width: auto;
   max-width: 180px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.65;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  display: block;
 }
-.brand-logo:hover,
-.brands-swiper:hover .brand-logo:hover { filter: grayscale(0%); opacity: 1; }
 
 @media (max-width: 768px) {
   .brands-section { padding: 56px 0; }
+  .brands-swiper .swiper-slide { height: 48px; }
   .brand-logo { height: 40px; max-width: 130px; }
 }
 
