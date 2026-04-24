@@ -1780,6 +1780,33 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   SHARED CAROUSEL EASING — smooth cubic-bezier for slide swipers
+   (brands marquee is linear, set separately below)
+   ============================================================ */
+.testimonials-swiper .swiper-wrapper,
+.faq-swiper .swiper-wrapper,
+.blog-card-swiper .swiper-wrapper,
+.city-swiper .swiper-wrapper,
+.sa-why-swiper .swiper-wrapper,
+.reviews-swiper .swiper-wrapper,
+.projects-cat-swiper .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-swiper .swiper-wrapper,
+  .faq-swiper .swiper-wrapper,
+  .blog-card-swiper .swiper-wrapper,
+  .city-swiper .swiper-wrapper,
+  .sa-why-swiper .swiper-wrapper,
+  .reviews-swiper .swiper-wrapper,
+  .projects-cat-swiper .swiper-wrapper,
+  .brands-swiper .swiper-wrapper {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
    PROJECTS CATEGORY CAROUSEL (per-category Swiper on projects.html)
    Reuses .project-card / .project-img / .before-after-wrap untouched —
    only wraps them in Swiper slides and adds nav + dots.
