@@ -159,7 +159,7 @@ img { max-width: 100%; display: block; }
 .logo {
   display: inline-flex;
   align-items: center;
-  background: #fff;
+  background: var(--yellow);
   padding: 6px;
   border-radius: 4px;
   line-height: 0;
@@ -1302,6 +1302,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .section-title em { font-style: normal; color: var(--green); }
 .section-dark .section-title em { color: var(--yellow); }
+.article-cta .section-title em { color: var(--yellow); }
 
 /* ============================================================
    PAGE BANNER — generic hero banner for inner pages
