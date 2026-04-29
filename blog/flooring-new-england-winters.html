@@ -177,7 +177,8 @@
         <p class="hero-form-title" id="estimate-modal-title">Get a Free Estimate</p>
         <p class="hero-form-sub">No obligation — we'll get back to you fast.</p>
       </div>
-      <form name="hero-contact" netlify>
+      <form name="hero-contact" netlify data-wup-contact>
+          <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="company_website" tabindex="-1" autocomplete="off"/></div>
         <div class="form-row">
           <input type="text" name="first-name" placeholder="First Name" required />
           <input type="text" name="last-name" placeholder="Last Name" required />

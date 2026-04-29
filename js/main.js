@@ -105,12 +105,22 @@ function initContactForms() {
   const API_BASE = window.WUP_SAAS.base;
   const API_KEY  = window.WUP_SAAS.apiKey;
 
-  document.querySelectorAll('form').forEach(form => {
-    const emailInput = form.querySelector('input[type="email"]');
-    const textarea = form.querySelector('textarea');
-    if (!emailInput || !textarea) return; // not a contact form
+  // Opt-in: only forms explicitly tagged data-wup-contact post to the SaaS.
+  // Selecting by shape (any form with email+textarea) was over-eager and would
+  // silently auto-attach to a future search/login form and burn rate limit.
+  document.querySelectorAll('form[data-wup-contact]').forEach(form => {
+    // Spam honeypot — bots fill every visible field including hidden ones
+    // with display:none, so we use absolute-positioned-off-screen and an
+    // aria-hidden flag. Real users don't fill it.
+    const honeypot = form.querySelector('input[name="company_website"]');
 
     form.addEventListener('submit', async (e) => {
+      // Honeypot tripped → bail silently. Don't show success or error;
+      // bots see no signal and abandon.
+      if (honeypot && honeypot.value) {
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const orig = btn ? btn.textContent : '';
