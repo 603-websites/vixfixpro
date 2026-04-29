@@ -96,13 +96,69 @@ if (document.readyState === 'loading') {
   initEstimateModal();
 }
 
-// Basic form submit feedback
-const form = document.querySelector('.contact-form');
-form?.addEventListener('submit', () => {
-  const btn = form.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-});
+// Wire every contact form on the page (homepage hero, contact section,
+// service-area pages, modal) to POST into the Website Upgrader Pro SaaS
+// /api/v1/contact endpoint. The `netlify` attribute on the form tags is a
+// vestige from before this site moved to Vercel — it does nothing here.
+function initContactForms() {
+  if (!window.WUP_SAAS) return;
+  const API_BASE = window.WUP_SAAS.base;
+  const API_KEY  = window.WUP_SAAS.apiKey;
+
+  document.querySelectorAll('form').forEach(form => {
+    const emailInput = form.querySelector('input[type="email"]');
+    const textarea = form.querySelector('textarea');
+    if (!emailInput || !textarea) return; // not a contact form
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const orig = btn ? btn.textContent : '';
+
+      const fields = {};
+      form.querySelectorAll('input, textarea, select').forEach(el => {
+        if (!el.name || !el.value) return;
+        fields[el.name] = el.value.trim();
+      });
+
+      const name = [fields['first-name'], fields['last-name']].filter(Boolean).join(' ').trim()
+        || fields.name || fields['full-name'] || '';
+      const message = fields['project-description'] || fields.message || '';
+      const email = fields.email;
+      const phone = fields.phone || undefined;
+
+      if (!name || !email || !message) return;
+
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      try {
+        const res = await fetch(API_BASE + '/api/v1/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
+          body: JSON.stringify({ name, email, phone, message }),
+        });
+        if (!res.ok) throw new Error('failed');
+        if (typeof window.plausible === 'function') {
+          window.plausible('Estimate Request', { props: { path: location.pathname } });
+        }
+        // Replace the form with a success message
+        const wrap = document.createElement('div');
+        wrap.style.cssText = 'padding:1.25rem;border-radius:0.5rem;background:#e8f5e9;color:#1b5e20;font-weight:600;text-align:center;';
+        wrap.textContent = 'Thanks! We got your request and will be in touch shortly.';
+        form.replaceWith(wrap);
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = orig; }
+        alert('Something went wrong sending that. Please try again or call us directly.');
+      }
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initContactForms);
+} else {
+  initContactForms();
+}
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');
