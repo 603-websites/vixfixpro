@@ -98,17 +98,20 @@ if (document.readyState === 'loading') {
 
 // Wire every contact form on the page (homepage hero, contact section,
 // service-area pages, modal) to POST into the Website Upgrader Pro SaaS
-// /api/v1/contact endpoint. The `netlify` attribute on the form tags is a
+// /api/v1/contact endpoint OR the /api/v1/bookings endpoint, depending on
+// the form's data attribute. The `netlify` attribute on the form tags is a
 // vestige from before this site moved to Vercel — it does nothing here.
 function initContactForms() {
   if (!window.WUP_SAAS) return;
   const API_BASE = window.WUP_SAAS.base;
   const API_KEY  = window.WUP_SAAS.apiKey;
 
-  // Opt-in: only forms explicitly tagged data-wup-contact post to the SaaS.
-  // Selecting by shape (any form with email+textarea) was over-eager and would
-  // silently auto-attach to a future search/login form and burn rate limit.
-  document.querySelectorAll('form[data-wup-contact]').forEach(form => {
+  // Opt-in: only forms explicitly tagged data-wup-contact / data-wup-booking
+  // post to the SaaS. Selecting by shape was over-eager and would silently
+  // auto-attach to a future search/login form and burn rate limit.
+  const selectors = 'form[data-wup-contact], form[data-wup-booking]';
+  document.querySelectorAll(selectors).forEach(form => {
+    const isBooking = form.hasAttribute('data-wup-booking');
     // Spam honeypot — bots fill every visible field including hidden ones
     // with display:none, so we use absolute-positioned-off-screen and an
     // aria-hidden flag. Real users don't fill it.
@@ -142,19 +145,50 @@ function initContactForms() {
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
       try {
-        const res = await fetch(API_BASE + '/api/v1/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
-          body: JSON.stringify({ name, email, phone, message }),
-        });
+        let res;
+        if (isBooking) {
+          // Map an estimate-request form into the BookingRequest schema:
+          //   - bandName carries a short, dashboard-list-friendly title
+          //     (a service if the form has one, else a 60-char preview of
+          //     the project description, else "Estimate request")
+          //   - service-needed dropdown (if present) becomes the genre/type
+          //   - the full description goes into `message`
+          const titlePreview = message.length > 60 ? message.slice(0, 57) + '…' : message;
+          const bandName = fields['service-needed'] || titlePreview || 'Estimate request';
+          const genre = fields['service-needed'] || fields['property-type'] || undefined;
+          const preferredDate = fields['preferred-date'] || undefined;
+          res = await fetch(API_BASE + '/api/v1/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
+            body: JSON.stringify({
+              bandName,
+              contactName: name,
+              contactEmail: email,
+              contactPhone: phone,
+              genre,
+              preferredDate,
+              message,
+            }),
+          });
+        } else {
+          res = await fetch(API_BASE + '/api/v1/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
+            body: JSON.stringify({ name, email, phone, message }),
+          });
+        }
         if (!res.ok) throw new Error('failed');
         if (typeof window.plausible === 'function') {
-          window.plausible('Estimate Request', { props: { path: location.pathname } });
+          window.plausible(isBooking ? 'Estimate Request' : 'Contact Submitted', {
+            props: { path: location.pathname },
+          });
         }
         // Replace the form with a success message
         const wrap = document.createElement('div');
         wrap.style.cssText = 'padding:1.25rem;border-radius:0.5rem;background:#e8f5e9;color:#1b5e20;font-weight:600;text-align:center;';
-        wrap.textContent = 'Thanks! We got your request and will be in touch shortly.';
+        wrap.textContent = isBooking
+          ? 'Thanks! We got your request and will text or call you back fast with your free estimate.'
+          : 'Thanks! We got your message and will be in touch shortly.';
         form.replaceWith(wrap);
       } catch {
         if (btn) { btn.disabled = false; btn.textContent = orig; }

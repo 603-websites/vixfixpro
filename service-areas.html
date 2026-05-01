@@ -217,7 +217,7 @@
         <p class="hero-form-title" id="estimate-modal-title">Get a Free Estimate</p>
         <p class="hero-form-sub">No obligation — we'll get back to you fast.</p>
       </div>
-      <form name="hero-contact" netlify data-wup-contact>
+      <form name="hero-estimate" netlify data-wup-booking>
           <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="company_website" tabindex="-1" autocomplete="off"/></div>
         <div class="form-row">
           <input type="text" name="first-name" placeholder="First Name" required />
@@ -225,6 +225,18 @@
         </div>
         <input type="tel" name="phone" placeholder="Phone Number" />
         <input type="email" name="email" placeholder="Email Address" required />
+        <select name="service-needed" required>
+          <option value="">What do you need? (pick one)</option>
+          <option>Interior painting</option>
+          <option>Drywall repair or installation</option>
+          <option>Water damage repair</option>
+          <option>Flooring installation</option>
+          <option>Fire alarm / smoke detector install</option>
+          <option>TV mounting / cable management</option>
+          <option>Furniture restoration</option>
+          <option>General handyman work</option>
+          <option>Something else</option>
+        </select>
           <textarea name="project-description" placeholder="Describe your project — what needs fixing?" rows="4" required></textarea>
         <button type="submit" class="btn btn-primary btn-full">Get My Free Estimate</button>
       </form>
