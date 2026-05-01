@@ -15,7 +15,7 @@
   <meta name="twitter:title" content="VixFix Professional Services — NH Home Repair & Improvement" />
   <meta name="twitter:description" content="Expert home repair, painting, carpentry, flooring, water damage restoration & more in NH &amp; MA. Free estimates from VixFix. Call 603-202-5309." />
   <meta name="twitter:image" content="https://vixfixpro.com/images/heropicture.jpg" />
-  <link rel="icon" href="images/logo.jpg" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
   <script type="application/ld+json">
   [{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"VixFix Professional Services LLC","telephone":"+1-603-202-5309","email":"Justin@VixFixPro.com","url":"https://vixfixpro.com/","address":{"@type":"PostalAddress","addressLocality":"Concord","addressRegion":"NH","addressCountry":"US"},"areaServed":["Manchester NH","Nashua NH","Concord NH","Salem NH","Derry NH","Bedford NH","Londonderry NH","Merrimack NH"],"priceRange":"$$","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],"founder":{"@type":"Person","name":"Justin Vickery","jobTitle":"Owner & Lead Technician"},"sameAs":["https://www.facebook.com/p/VixFix-Professional-Services-LLC-61570549505960/"],"knowsAbout":["interior painting","exterior painting","drywall repair","drywall installation","water damage repair","hardwood floor installation","LVP flooring","laminate flooring","fire alarm installation","smoke detector installation","carbon monoxide detector installation","TV mounting","cable management","furniture restoration","sofa restuffing","EPA Lead-Safe renovation","handyman services"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Repair & Improvement Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Interior Painting","url":"https://vixfixpro.com/interior-painting.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Water Damage Repair","url":"https://vixfixpro.com/water-damage-repair.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Drywall Repair & Installation","url":"https://vixfixpro.com/drywall-repair.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flooring Installation","url":"https://vixfixpro.com/flooring-installation.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fire Alarm & Smoke Detector Installation","url":"https://vixfixpro.com/fire-alarm-installation.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"TV Mounting & Cable Management"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Furniture Restoration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"General Handyman Services"}}]}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What areas does VixFix serve?","acceptedAnswer":{"@type":"Answer","text":"VixFix is based in Concord, NH and serves homeowners throughout New Hampshire and northern Massachusetts — from the Lakes Region down through Manchester, Nashua, and Salem."}},{"@type":"Question","name":"Are you licensed and insured?","acceptedAnswer":{"@type":"Answer","text":"Yes — VixFix Professional Services LLC is fully insured and operates in compliance with both New Hampshire and Massachusetts licensing requirements for every trade we offer."}},{"@type":"Question","name":"Do you offer free estimates?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Every estimate is free, no-obligation, and in writing so you can compare bids confidently."}},{"@type":"Question","name":"How fast can you start?","acceptedAnswer":{"@type":"Answer","text":"Most estimates come back within 24 hours, and non-emergency projects typically get scheduled within 1–2 weeks. For active water damage or urgent safety issues, we aim for same-day or next-day service."}}]}]
   </script>
@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
 <!-- Website Upgrader Pro — SaaS integration + Plausible analytics -->
 <script>
   window.WUP_SAAS = {
@@ -41,7 +41,7 @@
   <header class="site-header">
     <nav class="nav-inner">
       <a href="index.html" class="logo">
-        <img src="images/logo.jpg" alt="VixFix Professional Services" />
+        <img src="images/newvixfixlogo.png" alt="VixFix Professional Services" />
       </a>
       <button class="nav-toggle" aria-label="Open menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
@@ -62,7 +62,12 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" data-hero-carousel>
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide is-active" style="background-image:url('images/heropicture.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-3.jpg')"></div>
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-text">
@@ -115,6 +120,7 @@
     <div class="container">
       <p class="eyebrow">What Our Customers Say</p>
       <h2 class="section-title">Real Results. Real People.</h2>
+      <p class="testi-subhead">Experience the VixFix Difference</p>
       <div class="swiper testimonials-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -421,6 +427,19 @@
           <div class="swiper-slide">
             <div class="blog-card">
               <div class="blog-card-img">
+                <img src="images/electrical1.jpg" alt="Fire alarm installation NH guide" loading="lazy" />
+              </div>
+              <div class="blog-card-body">
+                <p class="blog-card-tag">Safety Guide</p>
+                <p class="blog-card-title">Fire Alarm &amp; Smoke Detector Installation in NH: What Homeowners Need to Know</p>
+                <p class="blog-card-excerpt">NH law requires working detectors on every level. Know the right type, placement, and when to call a pro.</p>
+                <a href="/blog/fire-alarm-installation-nh-guide.html" class="blog-card-link">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="blog-card">
+              <div class="blog-card-img">
                 <img src="images/waterdamageblog.webp" alt="Water damage repair guide" loading="lazy" />
               </div>
               <div class="blog-card-body">
@@ -457,59 +476,6 @@
               </div>
             </div>
           </div>
-
-          <div class="swiper-slide">
-            <div class="blog-card">
-              <div class="blog-card-img">
-                <img src="images/electrical1.jpg" alt="Fire alarm installation NH guide" loading="lazy" />
-              </div>
-              <div class="blog-card-body">
-                <p class="blog-card-tag">Safety Guide</p>
-                <p class="blog-card-title">Fire Alarm &amp; Smoke Detector Installation in NH: What Homeowners Need to Know</p>
-                <p class="blog-card-excerpt">NH law requires working detectors on every level. Know the right type, placement, and when to call a pro.</p>
-                <a href="/blog/fire-alarm-installation-nh-guide.html" class="blog-card-link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="blog-card">
-              <div class="blog-card-img">
-                <img src="images/heropicture.jpg" alt="Drywall repair NH guide" loading="lazy" />
-              </div>
-              <div class="blog-card-body">
-                <p class="blog-card-tag">Guide</p>
-                <p class="blog-card-title">Drywall Repair in NH: When to Patch, When to Replace, and How to Get a Seamless Finish</p>
-                <p class="blog-card-excerpt">Patch vs. replace, texture matching, and why paint alone won't hide a bad repair.</p>
-                <a href="/blog/drywall-repair-nh-guide.html" class="blog-card-link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="blog-card">
-              <div class="blog-card-img blog-card-img-2">
-                <img src="images/interiorpainitngblog.png" alt="Interior painting cost NH 2025" loading="lazy" />
-              </div>
-              <div class="blog-card-body">
-                <p class="blog-card-tag">Cost Guide</p>
-                <p class="blog-card-title">How Much Does Interior Painting Cost in NH? (2025 Guide)</p>
-                <p class="blog-card-excerpt">What drives quotes from $300 to $8,000 — and what to look for in a contractor's bid.</p>
-                <a href="/blog/interior-painting-cost-nh.html" class="blog-card-link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="blog-card">
-              <div class="blog-card-img">
-                <img src="images/waterdamageblog.webp" alt="Hidden water leak signs NH home" loading="lazy" />
-              </div>
-              <div class="blog-card-body">
-                <p class="blog-card-tag">Guide</p>
-                <p class="blog-card-title">5 Signs Your NH Home Has a Hidden Water Leak</p>
-                <p class="blog-card-excerpt">Ceiling stains, musty smell, soft drywall — warning signs NH homeowners often miss until the damage is significant.</p>
-                <a href="/blog/hidden-water-leak-signs-nh.html" class="blog-card-link">Read More</a>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -528,8 +494,8 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="images/logo.jpg" alt="VixFix Professional Services" /></a>
-        <p>Professional Services LLC</p>
+        <a href="index.html" class="logo"><img src="images/newvixfixlogo.png" alt="VixFix Professional Services" /></a>
+        <p>VixFix Contracting and Home Improvement</p>
         <p>Serving New Hampshire &amp; Massachusetts with quality craftsmanship.</p>
       </div>
       <div class="footer-links">
@@ -568,7 +534,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
   <!-- ESTIMATE MODAL -->
   <div id="estimate-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title" aria-hidden="true" hidden>
     <div class="hero-form-card modal-card">

@@ -560,3 +560,17 @@ document.querySelectorAll('.projects-cat-swiper').forEach(el => {
 
   document.querySelectorAll('[data-svc-carousel]').forEach(initCarousel);
 }());
+
+// Hero carousel — auto-advance crossfade, no manual controls
+(function () {
+  const hero = document.querySelector('[data-hero-carousel]');
+  if (!hero) return;
+  const slides = hero.querySelectorAll('.hero-slide');
+  if (slides.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  }, 5000);
+}());
