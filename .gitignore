@@ -1,2 +1,6 @@
 .vercel
 .wrangler
+
+# Internal security/audit/dev artifacts (do NOT deploy)
+SECURITY_AUDIT.md
+codex-prompt.txt
