@@ -1,15 +1,1 @@
-# Bare-path to .html (clean URLs without typing the extension)
-/about            /about.html             301
-/projects         /projects.html          301
-/reviews          /reviews.html           301
-/faq              /faq.html               301
-/blog             /blog.html              301
-/service-areas    /service-areas.html     301
-/interior-painting       /interior-painting.html       301
-/drywall-repair          /drywall-repair.html          301
-/water-damage-repair     /water-damage-repair.html     301
-/flooring-installation   /flooring-installation.html   301
-/fire-alarm-installation /fire-alarm-installation.html 301
-
-# Legacy / pre-rebrand URL parity (placeholder for future content moves)
-# Add lines here when a URL gets renamed or removed.
+# Legacy / pre-rebrand URL parity (add lines here when a URL gets renamed or removed)
