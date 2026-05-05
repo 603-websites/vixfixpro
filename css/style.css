@@ -1,5 +1,5 @@
 /* ============================================================
-   VixFix Professional Services — Main Stylesheet
+   VixFix Contracting and Home Improvement, Main Stylesheet
    Brand: Green #034a1c · Yellow #d6ce02 · Black #000000
    ============================================================ */
 
@@ -510,6 +510,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-form-card input,
+.hero-form-card select,
 .hero-form-card textarea {
   width: 100%;
   padding: 13px 14px;
@@ -526,9 +527,22 @@ img { max-width: 100%; display: block; }
   line-height: 1.5;
   resize: vertical;
 }
+.hero-form-card select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.55)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+  cursor: pointer;
+}
+.hero-form-card select option { background: #1a1a1a; color: var(--white); }
+.hero-form-card select:invalid { color: rgba(255,255,255,0.35); }
 .hero-form-card input::placeholder,
 .hero-form-card textarea::placeholder { color: rgba(255,255,255,0.35); }
 .hero-form-card input:focus,
+.hero-form-card select:focus,
 .hero-form-card textarea:focus { outline: none; border-color: var(--yellow); }
 
 .hero-services-btn {
