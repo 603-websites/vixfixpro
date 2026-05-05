@@ -43,6 +43,95 @@ img { max-width: 100%; display: block; }
 .section-dark { background: var(--dark-section); color: var(--white); }
 .section-alt { background: var(--alt-bg); }
 
+/* Charcoal section variant — for sections leaning into the dark palette */
+.section-charcoal { background: #121212; color: var(--white); }
+.section-charcoal .eyebrow { color: var(--yellow); }
+.section-charcoal .section-title { color: var(--white); }
+.section-charcoal .section-title em { color: var(--yellow); }
+.section-charcoal .section-sub { color: rgba(255,255,255,0.72); }
+.section-charcoal .services-note { color: rgba(255,255,255,0.72); }
+.section-charcoal .services-note a { color: var(--yellow); }
+.section-charcoal .svc-btn { background: rgba(255,255,255,0.06); border-color: var(--yellow); color: var(--yellow); }
+.section-charcoal .svc-btn:hover { background: var(--yellow); color: #000000; }
+.section-charcoal .svc-dot { background: rgba(255,255,255,0.28); }
+.section-charcoal .svc-dot.active { background: var(--yellow); }
+.section-charcoal .swiper-pagination-bullet { background: rgba(255,255,255,0.32); }
+.brands-section.section-charcoal { border-top-color: rgba(255,255,255,0.06); border-bottom-color: rgba(255,255,255,0.06); }
+.section-charcoal .brand-pill { background: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.45); }
+
+/* Dark cards inside charcoal sections — services + blog */
+.section-charcoal .svc-card {
+  background: #1c1c1c;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.section-charcoal .svc-card:hover {
+  box-shadow: 0 6px 28px rgba(0,0,0,0.7);
+}
+.section-charcoal .svc-card h3 { color: #ffffff; }
+.section-charcoal .svc-card p { color: rgba(255,255,255,0.72); }
+
+.section-charcoal .blog-card {
+  background: #1c1c1c;
+  border-color: rgba(255,255,255,0.08);
+  border-top-color: var(--yellow);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.section-charcoal .blog-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+}
+.section-charcoal .blog-card-tag { color: var(--yellow); }
+.section-charcoal .blog-card-title { color: #ffffff; }
+.section-charcoal .blog-card-excerpt { color: rgba(255,255,255,0.72); }
+.section-charcoal .blog-card-link { color: var(--yellow); }
+.section-charcoal .blog-card-link:hover { color: #ffffff; }
+
+/* Project cards inside charcoal sections */
+.section-charcoal .project-card {
+  background: #1c1c1c;
+  border-color: rgba(255,255,255,0.08);
+  border-top-color: var(--yellow);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.section-charcoal .project-card:hover {
+  box-shadow: 0 6px 28px rgba(0,0,0,0.7);
+}
+.section-charcoal .project-info h4 { color: #ffffff; }
+.section-charcoal .project-info p { color: rgba(255,255,255,0.72); }
+
+/* FAQ section in charcoal */
+.faq-section.section-charcoal { background: #121212; }
+.section-charcoal .faq-item {
+  background: #1c1c1c;
+  border-color: rgba(255,255,255,0.08);
+  border-top-color: var(--yellow);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.section-charcoal .faq-q { color: #ffffff; }
+.section-charcoal .faq-a { color: rgba(255,255,255,0.72); }
+.section-charcoal .faq-a a { color: var(--yellow); }
+.section-charcoal .home-faq-link a {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow);
+}
+.section-charcoal .home-faq-link a:hover { color: #ffffff; }
+
+/* Brand green accents on dark cards — bottom border complements the yellow top */
+.section-charcoal .blog-card { border-bottom: 3px solid var(--green); }
+.section-charcoal .project-card { border-bottom: 3px solid var(--green); }
+.section-charcoal .faq-item { border-bottom: 3px solid var(--green); }
+.section-charcoal .svc-card { border-bottom: 3px solid var(--green); }
+
+/* Tag pills on dark blog cards — solid green block with yellow text */
+.section-charcoal .blog-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--green);
+  color: var(--yellow);
+  padding: 5px 11px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+
 .eyebrow {
   font-size: 0.75rem;
   font-weight: 700;
@@ -922,7 +1011,7 @@ img { max-width: 100%; display: block; }
 .section-testi {
   padding-top: 64px;
   padding-bottom: 80px;
-  background: var(--off-white);
+  background: var(--alt-bg);
 }
 
 .section-testi .eyebrow { color: var(--mid); }
@@ -1912,7 +2001,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .brands-section {
   padding: 72px 0;
-  background: var(--off-white);
+  background: var(--alt-bg);
   text-align: center;
   border-top: 1px solid rgba(3,74,28,0.08);
   border-bottom: 1px solid rgba(3,74,28,0.08);

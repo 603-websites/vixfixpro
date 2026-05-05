@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" integrity="sha384-gAPqlBuTCdtVcYt9ocMOYWrnBZ4XSL6q+4eXqwNycOr4iFczhNKtnYhF3NEXJM51" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/style.css?v=12" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
 <!-- Website Upgrader Pro, SaaS integration + Plausible analytics -->
 <script>
   window.WUP_SAAS = {
@@ -87,7 +87,7 @@
           <p class="hero-form-title">Get a Free Estimate</p>
           <p class="hero-form-sub">No obligation, we'll get back to you fast.</p>
         </div>
-        <form name="hero-estimate" netlify data-wup-booking>
+        <form name="hero-contact" netlify data-wup-contact>
           <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="company_website" tabindex="-1" autocomplete="off"/></div>
           <div class="form-row">
             <input type="text" name="first-name" placeholder="First Name" required />
@@ -95,18 +95,6 @@
           </div>
           <input type="tel" name="phone" placeholder="Phone Number" />
           <input type="email" name="email" placeholder="Email Address" required />
-        <select name="service-needed" required>
-          <option value="">What do you need? (pick one)</option>
-          <option>Interior painting</option>
-          <option>Drywall repair or installation</option>
-          <option>Water damage repair</option>
-          <option>Flooring installation</option>
-          <option>Fire alarm / smoke detector install</option>
-          <option>TV mounting / cable management</option>
-          <option>Furniture restoration</option>
-          <option>General handyman work</option>
-          <option>Something else</option>
-        </select>
           <textarea name="project-description" placeholder="Describe your project, what needs fixing?" rows="4" required></textarea>
           <button type="submit" class="btn btn-primary btn-full">Get My Free Estimate</button>
         </form>
@@ -169,7 +157,7 @@
   </section>
 
   <!-- SERVICES, Swiper carousel (desktop + mobile) -->
-  <section class="section" id="services">
+  <section class="section section-charcoal" id="services">
     <div class="container">
       <p class="eyebrow">What We Do</p>
       <h2 class="section-title">Complete Home Repair &amp; Improvement</h2>
@@ -234,7 +222,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="section section-alt" id="projects">
+  <section class="section section-charcoal" id="projects">
     <div class="container">
       <p class="eyebrow">Our Work</p>
       <h2 class="section-title">Recent Projects</h2>
@@ -283,7 +271,7 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="section" id="process">
+  <section class="section section-alt" id="process">
     <div class="container">
       <p class="eyebrow">How It Works</p>
       <h2 class="section-title">Simple. Fast. Done Right.</h2>
@@ -377,7 +365,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section" id="faq">
+  <section class="faq-section section-charcoal" id="faq">
     <div class="container">
       <p class="eyebrow">Common Questions</p>
       <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
@@ -417,7 +405,7 @@
   </section>
 
   <!-- BLOG -->
-  <section class="section" id="blog">
+  <section class="section section-charcoal" id="blog">
     <div class="container">
       <p class="eyebrow">VixFix Insights</p>
       <h2 class="section-title">Latest from the <em>Blog</em></h2>
@@ -522,7 +510,7 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 VixFix Professional Services LLC. All rights reserved.</p>
-      <p class="footer-credit" style="color:#ffffff;">Created by <a href="https://www.websiteupgraderpro.com/" target="_blank" rel="noopener noreferrer" style="color:#ffffff;text-decoration:underline;">Website Upgraders</a></p>
+      <p class="footer-credit">Created by Website Builders</p>
     </div>
   </footer>
 
@@ -545,7 +533,7 @@
         <p class="hero-form-title" id="estimate-modal-title">Get a Free Estimate</p>
         <p class="hero-form-sub">No obligation, we'll get back to you fast.</p>
       </div>
-      <form name="hero-estimate" netlify data-wup-booking>
+      <form name="hero-contact" netlify data-wup-contact>
           <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="company_website" tabindex="-1" autocomplete="off"/></div>
         <div class="form-row">
           <input type="text" name="first-name" placeholder="First Name" required />
