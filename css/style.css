@@ -121,7 +121,7 @@ img { max-width: 100%; display: block; }
 .section-charcoal .faq-item { border-bottom: 3px solid var(--green); }
 .section-charcoal .svc-card { border-bottom: 3px solid var(--green); }
 
-/* Tag pills on dark blog cards — solid green block with yellow text */
+/* Tag pills on dark blog cards, solid green block with yellow text */
 .section-charcoal .blog-card-tag {
   display: inline-block;
   align-self: flex-start;
@@ -131,6 +131,37 @@ img { max-width: 100%; display: block; }
   border-radius: 3px;
   margin-bottom: 14px;
 }
+
+/* FAQ page accordion sections in charcoal */
+.faq-page-section.section-charcoal { background: #121212; color: var(--white); }
+.faq-page-section.section-charcoal .faq-group-title { color: var(--white); }
+.faq-page-section.section-charcoal .faq-group-title em { color: var(--yellow); }
+.faq-page-section.section-charcoal .faq-accordion {
+  background: #1c1c1c;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--green);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.faq-page-section.section-charcoal .faq-accordion summary { color: var(--white); }
+.faq-page-section.section-charcoal .faq-accordion summary:hover { background: rgba(255,255,255,0.06); }
+.faq-page-section.section-charcoal .faq-accordion[open] summary { background: rgba(255,255,255,0.06); }
+.faq-page-section.section-charcoal .faq-accordion-body { color: rgba(255,255,255,0.72); }
+.faq-page-section.section-charcoal .faq-accordion-body a { color: var(--yellow); }
+
+/* City cards inside charcoal sections (service-areas index) */
+.section-charcoal .city-card {
+  background: #1c1c1c;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--green);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.section-charcoal .city-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.7); }
+.section-charcoal .city-card-name { color: var(--white); }
+.section-charcoal .city-card-state { color: var(--yellow); }
+.section-charcoal .city-card-desc { color: rgba(255,255,255,0.72); }
+.section-charcoal .city-card-arrow { color: var(--yellow); }
 
 .eyebrow {
   font-size: 0.75rem;
